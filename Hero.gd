@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 export var speed = 150.0
+export var health = 3
 const projectile_path =  preload("res://projectile.tscn")
 #var screen_size = Vector2.ZERO
 
@@ -24,25 +25,46 @@ func _process(delta):
 		#$Sprite.play()
 		
 	if direction.x != 0:
-		#$Sprite.animation = "right"
-		$Sprite.flip_h = direction.x > 0
+		$AnimatedSprite.animation = "walk"
+		$AnimatedSprite.flip_h = direction.x > 0
 		
-		#$Sprite.flip_v = false
+		$AnimatedSprite.flip_v = false
 	elif direction.y != 0:
+		$AnimatedSprite.animation = "walk"
 		#$Sprite.animation = "up"
 		#$Sprite.flip_v = direction.y > 0
-		$Sprite.flip_h = false
+		#$AnimatedSpriteSprite.flip_h = false
+	elif direction.x || direction.y == 0:
+		$AnimatedSprite.animation = "idle"
 	#position += direction * speed * delta
-	move_and_collide(direction*speed*delta)
+	var collision = move_and_collide(direction * speed * delta)
+	if collision: print(collision.collider)
 	#position.x = clamp(position.x, 0, screen_size.x)
 	#position.y = clamp(position.y, 0, screen_size.y)
+	
+func damaged(amount):
+	health_updated(health - amount)
+	print(health)
+
+func health_updated(new_health):
+	print(health)
+	health = new_health
+	if health == 0:
+		_die()
+
+func _die():
+	self.queue_free()
+
 func shoot():
 	var projectile = projectile_path.instance()
+	
+	projectile.position = $Weapon/Position2D.global_position
+	#projectile.velocity = get_global_mouse_position()    -  projectile.position
+	projectile.velocity = Vector2(300, 0).rotated($Weapon.rotation)
+	projectile.rotation = $Weapon.rotation
 	get_parent().add_child(projectile)
-	projectile.position = $Node2D/Position2D.global_position
-	projectile.velocity = get_local_mouse_position() -  projectile.position
 	#projectile.look_at(get_global_mouse_position())
-	projectile.rotation = $Node2D.rotation
+	
 	$FireRateTimer.start()
 	yield(get_tree().create_timer(0.2), "timeout")
 	if is_instance_valid(projectile):

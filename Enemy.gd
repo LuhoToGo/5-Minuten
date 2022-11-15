@@ -1,10 +1,13 @@
 extends KinematicBody2D
 var player_in_area = null
 var direction = Vector2.ZERO
-var speed = 1
+var speed = 80
 export var health = 300
 var collision = null
 var only_once = true
+enum states  {HIT, IDLE}
+var state = states.IDLE
+signal hit
 func _ready():
 	$AnimatedSprite.modulate = Color(0, 0, 1) 
 
@@ -12,7 +15,7 @@ func _physics_process(delta):
 	$CollisionShape2D.disabled = false
 	direction = Vector2.ZERO
 	if player_in_area != null:
-		direction = position.direction_to(player_in_area.position) * speed
+		direction = position.direction_to(player_in_area.position)
 		$AnimatedSprite.play("walk")
 		if player_in_area.position.x > position.x:
 			$AnimatedSprite.flip_h = true
@@ -24,15 +27,34 @@ func _physics_process(delta):
 		direction = Vector2.ZERO
 		$AnimatedSprite.play("idle")
 	direction = direction.normalized()
-	collision = move_and_collide(direction)
-	if  only_once && collision && collision.collider.to_string().begins_with("pro"):
-		damaged(100)
-		only_once = false
-		$Timer.start()
+	collision = move_and_collide(direction*speed*delta)
+	if collision && collision.collider.to_string().begins_with("Hero"):
+		emit_signal("hit", 50)
+	#if  only_once && collision && collision.collider.to_string().begins_with("pro"):
+		#direction = (self.position - collision.collider.position)
+		#move_and_collide(direction*2)
+		#damaged(100)
+		
 		#yield(get_tree().create_timer(0.3), "timeout")
 		#$CollisionShape2D.disabled = false
 
+func dash_attack():
+	if state!=states.HIT:
+		var start_position = self.global_position
+		$HitEffect.play("attack")
+		speed = 500
+		yield(get_tree().create_timer(0.1), "timeout")
+		speed = 80
+		var this_direction = self.position-start_position
+		move_and_collide(this_direction)
+
 func damaged(amount):
+	$Hit.play()
+	speed = 80
+	only_once = false
+	state = states.HIT
+	$Timer.start()
+	$HitEffect.play("flash")
 	health_updated(health - amount)
 	print(health)
 
@@ -57,3 +79,17 @@ func _die():
 
 func _on_Timer_timeout():
 	only_once = true
+	state = states.IDLE
+	$HitEffect.play("idle")
+
+
+func _on_Hit_Range_body_entered(body):
+	if body.name == "Hero" && state!=states.HIT:
+		dash_attack()
+
+func hit(value, cposition):
+	if only_once:
+		direction = (self.position - cposition)
+		move_and_collide(direction*2)
+		damaged(value)
+		

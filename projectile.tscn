@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://PlatzhalterSprites/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/slash_effect_anim_f0.png" type="Texture" id=1]
+[ext_resource path="res://projectile.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 3.0
+height = 13.0
+
+[node name="projectile" type="KinematicBody2D"]
+position = Vector2( 322, 197 )
+scale = Vector2( 2, 2 )
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1, 0 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )

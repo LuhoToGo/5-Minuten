@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://PlatzhalterSprites/v1.1 dungeon crawler 16X16 pixel pack/full tilemap.png" type="Texture" id=1]
 [ext_resource path="res://Hero.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Spiel.gd" type="Script" id=4]
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Camera2D.tscn" type="PackedScene" id=6]
+[ext_resource path="res://EnemyRanged.tscn" type="PackedScene" id=7]
 
 [sub_resource type="TileSet" id=1]
 0/name = "full tilemap.png 0"
@@ -46,8 +47,7 @@ margin_right = 286.0
 margin_bottom = 33.0
 type = 1
 
-[node name="Enemy" parent="." instance=ExtResource( 5 )]
-position = Vector2( 559, 289 )
+[node name="Enemy2" parent="." instance=ExtResource( 7 )]
 
-[connection signal="getroffen" from="Hero" to="Enemy" method="hit"]
-[connection signal="hit" from="Enemy" to="Hero" method="hit"]
+[node name="Enemy" parent="." instance=ExtResource( 5 )]
+position = Vector2( 604, 315 )

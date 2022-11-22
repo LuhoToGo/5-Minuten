@@ -116,7 +116,7 @@ animations = [ {
 "frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
 "loop": true,
 "name": "up",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
 "loop": true,
@@ -213,6 +213,7 @@ animation = "up"
 playing = true
 
 [node name="HitInvunerable" type="Timer" parent="."]
+wait_time = 1.2
 one_shot = true
 
 [node name="HitEffect" type="AnimationPlayer" parent="."]
@@ -222,9 +223,11 @@ anims/idle = SubResource( 20 )
 
 [node name="ProjectileSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
+volume_db = -19.182
 
 [node name="HitSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+volume_db = -20.0
 
 [node name="HeartBar" parent="." instance=ExtResource( 8 )]
 margin_left = -293.0

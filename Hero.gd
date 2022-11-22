@@ -1,12 +1,13 @@
 extends KinematicBody2D
 
-export var speed = 150.0
+export var speed = 180.0
 export var health = 300
 var only_once = true
 var longevity = 1
 const projectile_long_path =  preload("res://projectile_long.tscn")
 export var projectile_path =  preload("res://projectile.tscn")
-signal getroffen
+enum states  {HIT, IDLE}
+var state = states.IDLE
 #var screen_size = Vector2.ZERO
 
 #func _ready():
@@ -44,13 +45,14 @@ func _process(delta):
 	#position += direction * speed * delta
 	var collision = move_and_collide(direction * speed * delta)
 	#if collision: print(collision.collider)
-	#if  only_once && collision && collision.collider.to_string().begins_with("Enemy"):
+	if  only_once && collision && collision.collider.to_string().begins_with("Enemy"):
+		print("mmm")
 	#	damaged(50)
 	#position.x = clamp(position.x, 0, screen_size.x)
 	#position.y = clamp(position.y, 0, screen_size.y)
 	
 func hit(value):
-	if only_once:
+	if only_once && states.IDLE:
 		damaged(value)
 
 func damaged(amount):
@@ -58,7 +60,7 @@ func damaged(amount):
 	$HitInvunerable.start()
 	$CollisionShape2D.disabled = true
 	#set_deferred("collision_layer", 0)
-	#set_deferred("collision_mask", 0)
+	set_deferred("collision_mask", 0)
 	only_once = false
 	health_updated(health - amount)
 	$HitEffect.play("flash")
@@ -83,7 +85,7 @@ func shoot():
 	projectile.velocity = Vector2(300, 0).rotated($Weapon.rotation)
 	projectile.rotation = $Weapon.rotation
 	get_parent().add_child(projectile)
-	projectile.connect("treffer", self, "send_treffer")
+	#projectile.connect("treffer", self, "send_treffer")
 	#projectile.look_at(get_global_mouse_position())
 	$FireRateTimer.start()
 	yield(get_tree().create_timer(longevity), "timeout")
@@ -93,13 +95,14 @@ func shoot():
 func screenshake():
 	print("Hi")
 
-func send_treffer(value, pposition):
-	emit_signal("getroffen", value, pposition)
+#func send_treffer(value, pposition):
+	#emit_signal("getroffen", value, pposition)
 
 
 func _on_HitInvunerable_timeout():
 	only_once = true
+	state = states.IDLE
 	#set_deferred("collision_layer", 1)
-	#set_deferred("collision_mask", 1)
+	set_deferred("collision_mask", 1)
 	$CollisionShape2D.set_deferred("disabled", false)
 	$HitEffect.play("idle")

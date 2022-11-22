@@ -18,7 +18,7 @@ func _physics_process(delta):
 	if in_range == true and $FireRateTimer.is_stopped() and states.IDLE:
 		shoot()
 	elif player_in_area != null && in_range == false:
-		direction = position.direction_to(player_in_area.position)
+		direction = global_position.direction_to(player_in_area.global_position)
 		$AnimatedSprite.play("walk")
 		$AnimatedSprite.flip_h = direction.x > 0
 		$AnimatedSprite.flip_v = false
@@ -27,12 +27,12 @@ func _physics_process(delta):
 		$AnimatedSprite.play("idle")
 	direction = direction.normalized()
 	collision = move_and_collide(direction*speed*delta)
-	if collision && collision.collider.to_string().begins_with("Hero"):
+	if collision && collision.collider.is_in_group("player"):
 		collision.collider.hit(100)
 
 func shoot():
 	var projectile = projectile_path.instance()
-	projectile.position = $Attack/Position2D.global_position
+	projectile.global_position = $Attack/Position2D.global_position
 	projectile.velocity = Vector2(300, 0).rotated($Attack.rotation)
 	projectile.rotation = $Attack.rotation
 	get_parent().add_child(projectile)
@@ -58,14 +58,14 @@ func health_updated(new_health):
 		_die()
 
 func _on_Area2D_body_entered(body):
-	if body.name == "Hero":
+	if body.is_in_group("player"):
 		player_in_area = body
 		$Attack.player = body
 		print("in")
 
 
 func _on_Area2D_body_exited(body):
-	if body.name == "Hero":
+	if body.is_in_group("player"):
 		player_in_area = null
 		print("left")
 
@@ -81,7 +81,7 @@ func _on_Timer_timeout():
 
 
 func _on_Hit_Range_body_entered(body):
-	if body.name == "Hero":
+	if body.is_in_group("player"):
 		in_range = true
 
 func hit(value, cposition, dir):
@@ -92,5 +92,5 @@ func hit(value, cposition, dir):
 
 
 func _on_Hit_Range_body_exited(body):
-	if body.name == "Hero":
+	if body.is_in_group("player"):
 		in_range = false

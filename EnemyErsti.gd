@@ -30,7 +30,7 @@ func _physics_process(delta):
 	collision = move_and_collide(direction*speed*delta)
 	if collision:
 		random_direction()
-		if collision.collider.to_string().begins_with("Hero"):
+		if collision.collider.is_in_group("player"):
 			collision.collider.hit(100)
 
 func random_direction():
@@ -59,7 +59,7 @@ func health_updated(new_health):
 		_die()
 
 func _on_Area2D_body_entered(body):
-	if body.name == "Hero":
+	if body.is_in_group("player"):
 		print(body.name)
 		player_in_area = body
 

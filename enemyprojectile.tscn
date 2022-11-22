@@ -9,7 +9,6 @@ height = 13.0
 
 [node name="projectile" type="KinematicBody2D"]
 position = Vector2( 322, 197 )
-scale = Vector2( 2, 2 )
 collision_layer = 8
 collision_mask = 3
 script = ExtResource( 2 )

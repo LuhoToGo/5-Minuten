@@ -144,7 +144,8 @@ tracks/0/keys = {
 "values": [ true ]
 }
 
-[node name="EnemyErsti" type="KinematicBody2D"]
+[node name="EnemyErsti" type="KinematicBody2D" groups=["enemies"]]
+scale = Vector2( 0.5, 0.5 )
 collision_layer = 4
 collision_mask = 3
 script = ExtResource( 3 )

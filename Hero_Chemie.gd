@@ -3,7 +3,7 @@ extends KinematicBody2D
 export var speed = 180.0
 export var health = 300
 var only_once = true
-var longevity = 0.25
+var longevity = 1
 const projectile_long_path =  preload("res://projectile_long.tscn")
 export var projectile_path =  preload("res://projectile.tscn")
 enum states  {HIT, IDLE}

@@ -15,9 +15,9 @@ func _ready():
 func _physics_process(delta):
 	direction = Vector2.ZERO
 	if player_in_area != null:
-		direction = position.direction_to(player_in_area.position)
+		direction = global_position.direction_to(player_in_area.global_position)
 		$AnimatedSprite.play("walk")
-		if player_in_area.position.x > position.x:
+		if player_in_area.global_position.x > global_position.x:
 			$AnimatedSprite.flip_h = true
 			$AnimatedSprite.flip_v = false
 		else:
@@ -28,7 +28,7 @@ func _physics_process(delta):
 		$AnimatedSprite.play("idle")
 	direction = direction.normalized()
 	collision = move_and_collide(direction*speed*delta)
-	if collision && collision.collider.to_string().begins_with("Hero"):
+	if collision && collision.collider.is_in_group("player"):
 		#emit_signal("hit", 50)
 		collision.collider.hit(100)
 	#if  only_once && collision && collision.collider.to_string().begins_with("pro"):
@@ -49,7 +49,7 @@ func dash_attack():
 		yield(get_tree().create_timer(0.1), "timeout")
 		#state = states.IDLE
 		speed = 80
-		var this_direction = self.position-start_position
+		var this_direction = self.global_position-start_position
 		move_and_collide(this_direction)
 
 func damaged(amount):
@@ -69,13 +69,13 @@ func health_updated(new_health):
 		_die()
 
 func _on_Area2D_body_entered(body):
-	if body.name == "Hero":
+	if body.is_in_group("player"):
 		print(body.name)
 		player_in_area = body
 
 
 func _on_Area2D_body_exited(body):
-	if body.name == "Hero":
+	if body.is_in_group("player"):
 		player_in_area = null
 
 func _die():
@@ -90,7 +90,7 @@ func _on_Timer_timeout():
 
 
 func _on_Hit_Range_body_entered(body):
-	if body.name == "Hero" && state!=states.HIT:
+	if body.is_in_group("player") && state!=states.HIT:
 		dash_attack()
 
 func hit(value, cposition, dir):

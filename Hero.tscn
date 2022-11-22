@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://laser5-47286.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Hero.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://HeartBar.tscn" type="PackedScene" id=8]
 [ext_resource path="res://projectile_long.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Walkbehind.png" type="Texture" id=10]
+[ext_resource path="res://Camera2D.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 9.5, 24.5 )
@@ -182,6 +183,7 @@ tracks/1/keys = {
 
 [node name="Hero" type="KinematicBody2D"]
 position = Vector2( 334, 171 )
+scale = Vector2( 0.5, 0.5 )
 collision_mask = 5
 collision/safe_margin = 0.01
 script = ExtResource( 2 )
@@ -210,6 +212,7 @@ one_shot = true
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 18 )
 animation = "up"
+frame = 1
 playing = true
 
 [node name="HitInvunerable" type="Timer" parent="."]
@@ -227,10 +230,13 @@ stream = ExtResource( 1 )
 stream = ExtResource( 7 )
 
 [node name="HeartBar" parent="." instance=ExtResource( 8 )]
-margin_left = -293.0
-margin_top = -163.0
-margin_right = 315.0
-margin_bottom = 37.0
+margin_left = -614.0
+margin_top = -336.0
+margin_right = 55.0
+margin_bottom = -116.0
 type = 1
+
+[node name="Camera2D" parent="." instance=ExtResource( 11 )]
+current = true
 
 [connection signal="timeout" from="HitInvunerable" to="." method="_on_HitInvunerable_timeout"]

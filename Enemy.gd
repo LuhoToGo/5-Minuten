@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-onready var navigation: Navigation2D = get_parent().get_node("Navigation2D")
+onready var navigation: Navigation2D = get_tree().current_scene.get_node("Rooms")
 
 var player_in_area = null
 var direction = Vector2.ZERO
@@ -73,7 +73,7 @@ func _on_Area2D_body_entered(body):
 		player_in_area = body
 
 
-func _on_Area2D_body_exited(body):
+func _on_Area2D_body_exited(_body):
 	player_in_area = null
 
 func _die():

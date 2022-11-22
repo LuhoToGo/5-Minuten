@@ -1,31 +1,18 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Rooms/Room0.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Hero.tscn" type="PackedScene" id=2]
-[ext_resource path="res://HeartBar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Spiel.gd" type="Script" id=4]
-[ext_resource path="res://Camera2D.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Rooms.gd" type="Script" id=5]
 
 [node name="Spiel" type="Node2D"]
 script = ExtResource( 4 )
 
-[node name="Rooms" type="Node2D" parent="."]
-
-[node name="Room0" parent="Rooms" instance=ExtResource( 1 )]
-position = Vector2( 1, 0 )
+[node name="Rooms" type="Navigation2D" parent="."]
+script = ExtResource( 5 )
 
 [node name="Hero" parent="." instance=ExtResource( 2 )]
-position = Vector2( 623, 735 )
+position = Vector2( 324, 182 )
 
-[node name="Camera2D" parent="Hero" instance=ExtResource( 6 )]
-position = Vector2( 2, -1 )
-current = true
-target = NodePath("..")
-
-[node name="HeartBar" parent="Hero" instance=ExtResource( 3 )]
-visible = false
-margin_left = -322.0
-margin_top = -167.0
-margin_right = 286.0
-margin_bottom = 33.0
-type = 1
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 324, 182 )
+scale = Vector2( 0.5, 0.5 )

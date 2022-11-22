@@ -42,7 +42,7 @@ func _process(delta):
 	elif direction.x || direction.y == 0:
 		$AnimatedSprite.animation = "idle"
 	#position += direction * speed * delta
-	var collision = move_and_collide(direction * speed * delta)
+	var _collision = move_and_collide(direction * speed * delta)
 	#if collision: print(collision.collider)
 	#if  only_once && collision && collision.collider.to_string().begins_with("Enemy"):
 	#	damaged(50)
@@ -103,3 +103,9 @@ func _on_HitInvunerable_timeout():
 	#set_deferred("collision_mask", 1)
 	$CollisionShape2D.set_deferred("disabled", false)
 	$HitEffect.play("idle")
+
+func switch_camera() -> void: #aufrufen wenn Hero stirbt!
+	var main_scene_camera: Camera2D = get_parent().get_node("Camera2D")
+	main_scene_camera.position = position
+	main_scene_camera.current = true
+	get_node("Camera2D").current = false

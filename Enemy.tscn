@@ -140,6 +140,7 @@ tracks/0/keys = {
 radius = 83.0963
 
 [node name="Enemy" type="KinematicBody2D"]
+scale = Vector2( 0.5, 0.5 )
 collision_layer = 4
 collision_mask = 3
 script = ExtResource( 3 )

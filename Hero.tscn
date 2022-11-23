@@ -11,6 +11,7 @@
 [ext_resource path="res://Camera2D.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Walkbehind.png" type="Texture" id=10]
 
+
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 9.5, 24.5 )
 
@@ -209,6 +210,7 @@ one_shot = true
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 18 )
 animation = "up"
+
 frame = 3
 playing = true
 
@@ -223,6 +225,7 @@ anims/idle = SubResource( 20 )
 
 [node name="ProjectileSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
+
 volume_db = -19.182
 
 [node name="HitSound" type="AudioStreamPlayer" parent="."]
@@ -239,5 +242,6 @@ type = 1
 [node name="Camera2D" parent="." instance=ExtResource( 9 )]
 current = true
 target = NodePath("..")
+
 
 [connection signal="timeout" from="HitInvunerable" to="." method="_on_HitInvunerable_timeout"]

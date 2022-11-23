@@ -13,5 +13,3 @@ func _physics_process(delta):
 			collision.collider.hit(50, position, dir * 6)
 		yield(get_tree().create_timer(0.1), "timeout")
 		queue_free()
-
-

@@ -5,6 +5,7 @@ var speed = 300
 var treffer = false
 signal treffer
 func _physics_process(delta):
+
 	var dir = (velocity.normalized() * speed * delta)
 	var collision = move_and_collide(dir)
 	if collision and is_instance_valid(self):

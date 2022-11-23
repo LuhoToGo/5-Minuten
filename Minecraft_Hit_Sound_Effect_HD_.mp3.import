@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Minecraft_Hit_Sound_Effect_HD_.mp3-6f8cb1a59a08a14d8c50abb2b6608a86.mp3str"
+
+[deps]
+
+source_file="res://Minecraft_Hit_Sound_Effect_HD_.mp3"
+dest_files=[ "res://.import/Minecraft_Hit_Sound_Effect_HD_.mp3-6f8cb1a59a08a14d8c50abb2b6608a86.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

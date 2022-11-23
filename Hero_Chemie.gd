@@ -1,15 +1,13 @@
 extends KinematicBody2D
 
-
 export var speed = 180.0
 export var health = 300
 var only_once = true
-var longevity = 0.25
+var longevity = 1
 const projectile_long_path =  preload("res://projectile_long.tscn")
 export var projectile_path =  preload("res://projectile.tscn")
 enum states  {HIT, IDLE}
 var state = states.IDLE
-
 #var screen_size = Vector2.ZERO
 
 #func _ready():
@@ -45,12 +43,10 @@ func _process(delta):
 	elif direction.x || direction.y == 0:
 		$AnimatedSprite.animation = "idle"
 	#position += direction * speed * delta
-
 	var collision = move_and_collide(direction * speed * delta)
 	#if collision: print(collision.collider)
 	if  only_once && collision && collision.collider.to_string().begins_with("Enemy"):
 		print("mmm")
-
 	#	damaged(50)
 	#position.x = clamp(position.x, 0, screen_size.x)
 	#position.y = clamp(position.y, 0, screen_size.y)
@@ -118,4 +114,3 @@ func pickup_passive_item(type_value):
 			speed = 350
 			yield(get_tree().create_timer(12), "timeout")
 			speed = 180
-

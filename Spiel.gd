@@ -4,8 +4,8 @@ onready var heartbar = hero.get_child(8)
 
 func _init() -> void:
 	randomize()
-
 func _process(delta):
 	var hearts : float = (hero.health/float(100)) 
+
 	heartbar.update_bar(hearts)
 

@@ -1,7 +1,7 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://laser5-47286.mp3" type="AudioStream" id=1]
-[ext_resource path="res://Hero.gd" type="Script" id=2]
+[ext_resource path="res://Hero_Chemie.gd" type="Script" id=2]
 [ext_resource path="res://PlatzhalterSprites/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/weapon_sword_1.png" type="Texture" id=3]
 [ext_resource path="res://Node2D.gd" type="Script" id=4]
 [ext_resource path="res://Character walk.png" type="Texture" id=5]
@@ -10,7 +10,7 @@
 [ext_resource path="res://HeartBar.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Camera2D.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Walkbehind.png" type="Texture" id=10]
-
+[ext_resource path="res://projectile_long.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 9.5, 24.5 )
@@ -186,6 +186,7 @@ position = Vector2( 334, 171 )
 collision_mask = 5
 collision/safe_margin = 0.01
 script = ExtResource( 2 )
+projectile_path = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -210,8 +211,7 @@ one_shot = true
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 18 )
 animation = "up"
-
-frame = 3
+frame = 5
 playing = true
 
 [node name="HitInvunerable" type="Timer" parent="."]
@@ -225,7 +225,6 @@ anims/idle = SubResource( 20 )
 
 [node name="ProjectileSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
-
 volume_db = -19.182
 
 [node name="HitSound" type="AudioStreamPlayer" parent="."]
@@ -242,6 +241,5 @@ type = 1
 [node name="Camera2D" parent="." instance=ExtResource( 9 )]
 current = true
 target = NodePath("..")
-
 
 [connection signal="timeout" from="HitInvunerable" to="." method="_on_HitInvunerable_timeout"]

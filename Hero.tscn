@@ -11,9 +11,8 @@
 [ext_resource path="res://Camera2D.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Walkbehind.png" type="Texture" id=10]
 
-
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 9.5, 24.5 )
+extents = Vector2( 12.125, 18 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 6 )
@@ -188,6 +187,7 @@ collision/safe_margin = 0.01
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -2.125, 11 )
 shape = SubResource( 1 )
 
 [node name="Weapon" type="Node2D" parent="."]
@@ -210,8 +210,6 @@ one_shot = true
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 18 )
 animation = "up"
-
-frame = 3
 playing = true
 
 [node name="HitInvunerable" type="Timer" parent="."]
@@ -225,7 +223,6 @@ anims/idle = SubResource( 20 )
 
 [node name="ProjectileSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
-
 volume_db = -19.182
 
 [node name="HitSound" type="AudioStreamPlayer" parent="."]
@@ -233,6 +230,7 @@ stream = ExtResource( 7 )
 volume_db = -20.0
 
 [node name="HeartBar" parent="." instance=ExtResource( 8 )]
+visible = false
 margin_left = -293.0
 margin_top = -163.0
 margin_right = 315.0
@@ -242,6 +240,5 @@ type = 1
 [node name="Camera2D" parent="." instance=ExtResource( 9 )]
 current = true
 target = NodePath("..")
-
 
 [connection signal="timeout" from="HitInvunerable" to="." method="_on_HitInvunerable_timeout"]

@@ -3,7 +3,8 @@ extends Node2D
 const SPAWN_EXPLOSION_SCENE: PackedScene = preload("res://SpawnExplosion.tscn")
 
 const ENEMY_SCENES: Dictionary = {
-	"Enemy": preload("res://Enemy.tscn")
+	"Enemy": preload("res://Enemy.tscn"),
+	"EnemyRanged": preload("res://EnemyRanged.tscn")
 }
 
 var num_enemies: int
@@ -35,7 +36,10 @@ func _close_entrance() -> void:
 func _spawn_enemies() -> void:
 	for enemy_position in enemy_positions_container.get_children():
 		var enemy: KinematicBody2D
-		enemy = ENEMY_SCENES.Enemy.instance()
+		if randi() % 2 == 0:
+			enemy = ENEMY_SCENES.Enemy.instance()
+		else:
+			enemy = ENEMY_SCENES.EnemyRanged.instance()
 
 		enemy.position = enemy_position.position
 		call_deferred("add_child", enemy)

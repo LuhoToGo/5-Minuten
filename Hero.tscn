@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://laser5-47286.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Hero.gd" type="Script" id=2]
@@ -124,6 +124,33 @@ animations = [ {
 "speed": 10.0
 } ]
 
+[sub_resource type="Animation" id=29]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "walk" ]
+}
+
 [sub_resource type="Animation" id=19]
 resource_name = "flash"
 length = 0.3
@@ -180,6 +207,96 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
+[sub_resource type="Animation" id=30]
+resource_name = "up"
+length = 0.65
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "up" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "spawn_dust"
+}, {
+"args": [  ],
+"method": "spawn_dust"
+} ]
+}
+
+[sub_resource type="Animation" id=28]
+resource_name = "walk"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "walk" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "spawn_dust"
+}, {
+"args": [  ],
+"method": "spawn_dust"
+} ]
+}
+
 [node name="Hero" type="KinematicBody2D" groups=["player"]]
 position = Vector2( 334, 171 )
 collision_mask = 5
@@ -201,7 +318,7 @@ z_index = 1
 texture = ExtResource( 3 )
 
 [node name="Position2D" type="Position2D" parent="Weapon"]
-position = Vector2( 35, 1.5 )
+position = Vector2( 37, 1 )
 
 [node name="FireRateTimer" type="Timer" parent="."]
 wait_time = 0.4
@@ -210,7 +327,7 @@ one_shot = true
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 18 )
 animation = "up"
-playing = true
+frame = 6
 
 [node name="HitInvunerable" type="Timer" parent="."]
 wait_time = 1.2
@@ -218,8 +335,11 @@ one_shot = true
 
 [node name="HitEffect" type="AnimationPlayer" parent="."]
 reset_on_save = false
+anims/RESET = SubResource( 29 )
 anims/flash = SubResource( 19 )
 anims/idle = SubResource( 20 )
+anims/up = SubResource( 30 )
+anims/walk = SubResource( 28 )
 
 [node name="ProjectileSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
@@ -240,5 +360,8 @@ type = 1
 [node name="Camera2D" parent="." instance=ExtResource( 9 )]
 current = true
 target = NodePath("..")
+
+[node name="DustPosition" type="Position2D" parent="."]
+position = Vector2( -3, 27 )
 
 [connection signal="timeout" from="HitInvunerable" to="." method="_on_HitInvunerable_timeout"]

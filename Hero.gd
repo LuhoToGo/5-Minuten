@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-
+onready var parent: Node2D = get_parent()
 export var speed = 180.0
 export var health = 300
 var only_once = true
@@ -9,6 +9,11 @@ const projectile_long_path =  preload("res://projectile_long.tscn")
 export var projectile_path =  preload("res://projectile.tscn")
 enum states  {HIT, IDLE}
 var state = states.IDLE
+onready var dust_position: Position2D = get_node("DustPosition")
+onready var animated_sprite: AnimatedSprite = get_node("AnimatedSprite")
+onready var animation_player: AnimationPlayer = get_node("HitEffect")
+
+const DUST_SCENE: PackedScene = preload("res://Dust.tscn")
 
 #var screen_size = Vector2.ZERO
 
@@ -33,13 +38,15 @@ func _process(delta):
 		#$Sprite.play()
 		
 	if direction.x != 0:
-		$AnimatedSprite.animation = "walk"
+		#$AnimatedSprite.animation = "walk"
+		animation_player.play("walk")
 		$AnimatedSprite.flip_h = direction.x > 0
 		
 		$AnimatedSprite.flip_v = false
 	elif direction.y != 0:
 		#$AnimatedSprite.animation = "walk"
-		$AnimatedSprite.animation = "up"
+		#$AnimatedSprite.animation = "up"
+		animation_player.play("up")
 		#$Sprite.flip_v = direction.y > 0
 		#$AnimatedSpriteSprite.flip_h = false
 	elif direction.x || direction.y == 0:
@@ -68,6 +75,7 @@ func damaged(amount):
 	only_once = false
 	health_updated(health - amount)
 	$HitEffect.play("flash")
+	
 	print(health)
 
 func health_updated(new_health):
@@ -118,4 +126,10 @@ func pickup_passive_item(type_value):
 			speed = 350
 			yield(get_tree().create_timer(12), "timeout")
 			speed = 180
+
+func spawn_dust() -> void:
+	var dust: Sprite = DUST_SCENE.instance()
+	dust.position = dust_position.global_position
+	parent.add_child_below_node(parent.get_child(get_index() - 1), dust)
+
 

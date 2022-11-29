@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/door_closed.png-304c7a489ec736a3d74bdf21654460b1.stex"
+path="res://.import/Richterhammer.png-a4727f254a8e675f870f8c8b2fd447bd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/v1.1 dungeon crawler 16x16 pixel pack/tiles/wall/door_closed.png"
-dest_files=[ "res://.import/door_closed.png-304c7a489ec736a3d74bdf21654460b1.stex" ]
+source_file="res://Art/Neu/Richterhammer.png"
+dest_files=[ "res://.import/Richterhammer.png-a4727f254a8e675f870f8c8b2fd447bd.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

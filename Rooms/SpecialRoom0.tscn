@@ -6,7 +6,7 @@
 [ext_resource path="res://Rooms/Furniture and Traps/Door.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 104, 16 )
+extents = Vector2( 125.5, 16 )
 
 [node name="SpecialRoom0" instance=ExtResource( 1 )]
 
@@ -26,7 +26,7 @@ position = Vector2( 248, 280 )
 position = Vector2( 192, 16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0"]
-position = Vector2( 192, 48 )
+position = Vector2( 213.5, 48 )
 shape = SubResource( 1 )
 
 [node name="RoomWithWeapon0" parent="." index="8" instance=ExtResource( 2 )]

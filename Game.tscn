@@ -33,6 +33,7 @@ tint_progress = Color( 0.498039, 0.0313726, 0.0313726, 1 )
 [node name="Tween" type="Tween" parent="UI/HealthBar"]
 
 [node name="PanelContainer" type="PanelContainer" parent="UI"]
+visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -45,6 +46,7 @@ grow_horizontal = 2
 custom_styles/panel = SubResource( 1 )
 
 [node name="Inventory" type="HBoxContainer" parent="UI/PanelContainer"]
+visible = false
 margin_left = 2.0
 margin_top = 2.0
 margin_right = 12.0

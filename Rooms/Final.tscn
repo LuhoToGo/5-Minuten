@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 8 )
 
-[node name="SlimeBossRoom" instance=ExtResource( 1 )]
+[node name="FinalRoom" instance=ExtResource( 1 )]
 boss_room = true
 
 [node name="TileMap" parent="." index="0"]
@@ -30,3 +30,11 @@ position = Vector2( 524, 25 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0"]
 position = Vector2( 240, 256 )
 shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="PlayerDetector" index="1"]
+margin_left = 188.0
+margin_top = 108.0
+margin_right = 295.0
+margin_bottom = 194.0
+text = "Hier könnte ihr
+ Endboss stehen"

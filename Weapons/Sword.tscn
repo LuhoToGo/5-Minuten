@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Weapons/Weapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Art/v1.1 dungeon crawler 16x16 pixel pack/effects (new)/slash_effect_anim_spritesheet.png" type="Texture" id=2]
-[ext_resource path="res://Art/v1.1 dungeon crawler 16x16 pixel pack/heroes/knight/weapon_sword_1.png" type="Texture" id=3]
+[ext_resource path="res://Art/Neu/Faust.png" type="Texture" id=3]
 [ext_resource path="res://Characters/Player/White.gdshader" type="Shader" id=4]
 [ext_resource path="res://Weapons/sword_active_ability.tres" type="Animation" id=5]
 
@@ -11,9 +11,8 @@ resource_local_to_scene = true
 shader = ExtResource( 4 )
 shader_param/active = false
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 2.0
-height = 10.0
+[sub_resource type="CircleShape2D" id=7]
+radius = 23.4664
 
 [sub_resource type="Animation" id=2]
 resource_name = "attack"
@@ -326,17 +325,21 @@ tracks/4/keys = {
 
 [node name="Sprite" parent="Node2D" index="0"]
 material = SubResource( 6 )
-position = Vector2( 7, 3 )
+position = Vector2( 5.45648, -1.80425 )
+rotation = -2.82045
+scale = Vector2( 0.138534, 0.138534 )
 texture = ExtResource( 3 )
 
 [node name="Hitbox" parent="Node2D/Sprite" index="0"]
+position = Vector2( 6.63065, -6.63068 )
 knockback_force = 200
 
 [node name="CollisionShape2D" parent="Node2D/Sprite/Hitbox" index="0"]
-shape = SubResource( 1 )
+position = Vector2( -2.15903, -1.88541 )
+shape = SubResource( 7 )
 
 [node name="ChargeParticles" parent="Node2D/Sprite" index="1"]
-position = Vector2( 5.65685, -4.24264 )
+position = Vector2( 4.47162, -8.51609 )
 
 [node name="SlashSprite" type="Sprite" parent="." index="1"]
 visible = false

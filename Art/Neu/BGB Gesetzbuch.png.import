@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/door_closed.png-304c7a489ec736a3d74bdf21654460b1.stex"
+path="res://.import/BGB Gesetzbuch.png-3afa861e8c88362304c2436a7d7b244d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/v1.1 dungeon crawler 16x16 pixel pack/tiles/wall/door_closed.png"
-dest_files=[ "res://.import/door_closed.png-304c7a489ec736a3d74bdf21654460b1.stex" ]
+source_file="res://Art/Neu/BGB Gesetzbuch.png"
+dest_files=[ "res://.import/BGB Gesetzbuch.png-3afa861e8c88362304c2436a7d7b244d.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

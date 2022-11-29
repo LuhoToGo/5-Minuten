@@ -35,6 +35,7 @@ func _open_doors() -> void:
 		
 		
 func _close_entrance() -> void:
+	yield(get_tree().create_timer(0.2), "timeout")
 	for entry_position in entrance.get_children():
 		tilemap.set_cellv(tilemap.world_to_map(entry_position.position), 1)
 		tilemap.set_cellv(tilemap.world_to_map(entry_position.position) + Vector2.DOWN, 2)

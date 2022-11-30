@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Weapons/Weapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Weapons/Crossbow.gd" type="Script" id=2]
-[ext_resource path="res://Art/Crossbow.png" type="Texture" id=3]
+[ext_resource path="res://Art/Neu/BGB Gesetzbuch.png" type="Texture" id=3]
 [ext_resource path="res://Characters/Player/White.gdshader" type="Shader" id=4]
-[ext_resource path="res://Art/19+ icons/iceB.png" type="Texture" id=5]
 
 [sub_resource type="ShaderMaterial" id=2]
 resource_local_to_scene = true
@@ -212,7 +211,8 @@ rotation_offset = 180
 
 [node name="Sprite" parent="Node2D" index="0"]
 material = SubResource( 2 )
-position = Vector2( 0, -3 )
+position = Vector2( 1.00002, -7 )
+scale = Vector2( 0.288829, 0.288829 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="Node2D/Sprite/Hitbox" index="0"]
@@ -229,6 +229,3 @@ anims/attack = SubResource( 3 )
 anims/cancel_attack = SubResource( 4 )
 anims/charge = SubResource( 5 )
 anims/strong_attack = SubResource( 6 )
-
-[node name="AbilityIcon" parent="UI" index="0"]
-texture_under = ExtResource( 5 )

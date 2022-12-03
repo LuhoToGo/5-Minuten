@@ -6,6 +6,8 @@ enum {UP, DOWN}
 
 var current_weapon: Node2D
 
+export (int) var speed = 200
+
 signal weapon_switched(prev_index, new_index)
 signal weapon_picked_up(weapon_texture)
 signal weapon_droped(index)

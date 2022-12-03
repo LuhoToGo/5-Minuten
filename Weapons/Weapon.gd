@@ -1,5 +1,5 @@
 extends Node2D
-class_name Weapon, "res://Art/v1.1 dungeon crawler 16x16 pixel pack/heroes/knight/weapon_sword_1.png"
+class_name Weapon, "res://Art/Neu/Faust.png"
 
 export(bool) var on_floor: bool = false
 

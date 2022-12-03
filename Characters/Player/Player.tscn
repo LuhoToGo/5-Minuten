@@ -1,12 +1,11 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Characters/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Art/Neu/Character walk.png" type="Texture" id=2]
 [ext_resource path="res://Art/Neu/DefaultIdle.png" type="Texture" id=3]
 [ext_resource path="res://Characters/Player/Player.gd" type="Script" id=4]
 [ext_resource path="res://Characters/Player/PlayerFSM.gd" type="Script" id=5]
-[ext_resource path="res://Weapons/Sword.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Sounds/Minecraft_Damage_Oof_-_Sound_Effect_HD.mp3" type="AudioStream" id=7]
+[ext_resource path="res://Weapons/Faust.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Art/v1.1 dungeon crawler 16x16 pixel pack/effects (new)/enemy_afterdead_explosion_anim_spritesheet.png" type="Texture" id=9]
 
 [sub_resource type="AtlasTexture" id=13]
@@ -295,6 +294,7 @@ collision_layer = 2
 collision_mask = 5
 script = ExtResource( 4 )
 hp = 4
+speed = 200
 
 [node name="FiniteStateMachine" parent="." index="0"]
 script = ExtResource( 5 )
@@ -326,6 +326,5 @@ current = true
 [node name="DustPosition" type="Position2D" parent="." index="6"]
 position = Vector2( 0, 6 )
 
-[node name="HitSound" type="AudioStreamPlayer" parent="." index="7"]
-stream = ExtResource( 7 )
+[node name="HitSound" parent="." index="7"]
 volume_db = -20.0

@@ -7,9 +7,9 @@ const END_ROOMS: Array = [preload("res://Rooms/EndRoom0.tscn")]
 const FINAL_SCENE: PackedScene = preload("res://Rooms/Final.tscn")
 
 const TILE_SIZE: int = 16
-const FLOOR_TILE_INDEX: int = 14
-const RIGHT_WALL_TILE_INDEX: int = 5
-const LEFT_WALL_TILE_INDEX: int = 6
+const FLOOR_TILE_INDEX: int = 41
+const RIGHT_WALL_TILE_INDEX: int = 43
+const LEFT_WALL_TILE_INDEX: int = 46
 
 export(int) var num_levels: int = 5
 

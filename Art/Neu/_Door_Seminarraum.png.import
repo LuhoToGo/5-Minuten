@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TileSheet_Seminarraum.png-9e9d2fd0c6243c740771d476d767dc27.stex"
+path="res://.import/_Door_Seminarraum.png-66e840ba8e833907e1a142d245633daf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Neu/TileSheet_Seminarraum.png"
-dest_files=[ "res://.import/TileSheet_Seminarraum.png-9e9d2fd0c6243c740771d476d767dc27.stex" ]
+source_file="res://Art/Neu/_Door_Seminarraum.png"
+dest_files=[ "res://.import/_Door_Seminarraum.png-66e840ba8e833907e1a142d245633daf.stex" ]
 
 [params]
 

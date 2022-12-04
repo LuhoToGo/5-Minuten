@@ -24,7 +24,7 @@ tile_data = PoolIntArray( 131070, 30, 0, 65536, 57, 0, 65544, 32, 0, 65545, 32, 
 position = Vector2( 80, 16 )
 
 [node name="DoorClosed" parent="." index="5" instance=ExtResource( 5 )]
-position = Vector2( -48, 15 )
+position = Vector2( -48, 16 )
 
 [node name="PlayerSpawnPos" type="Position2D" parent="." index="8"]
 position = Vector2( 128, 144 )

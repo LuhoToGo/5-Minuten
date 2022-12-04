@@ -11,7 +11,7 @@ shader = ExtResource( 4 )
 shader_param/active = false
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 7.0
+radius = 5.99999
 height = 2.0
 
 [sub_resource type="Animation" id=7]
@@ -211,15 +211,15 @@ rotation_offset = 180
 
 [node name="Sprite" parent="Node2D" index="0"]
 material = SubResource( 2 )
-position = Vector2( 1.00002, -7 )
-scale = Vector2( 0.288829, 0.288829 )
+position = Vector2( 1.0425, -4.66357 )
+scale = Vector2( 0.228752, 0.228752 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="Node2D/Sprite/Hitbox" index="0"]
 disabled = false
 
 [node name="CollisionShape2D" parent="PlayerDetector" index="0"]
-position = Vector2( -9, -1 )
+position = Vector2( -6, -1 )
 rotation = 1.5708
 shape = SubResource( 1 )
 

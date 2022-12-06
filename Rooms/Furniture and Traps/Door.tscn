@@ -118,8 +118,8 @@ tracks/3/keys = {
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 16, 16 )
 
-[sub_resource type="OccluderPolygon2D" id=19]
-polygon = PoolVector2Array( -16, -16, -16, -4, 16, -4, 16, -16 )
+[sub_resource type="OccluderPolygon2D" id=27]
+polygon = PoolVector2Array( -16, 16, -16, -16, 16, -16, 16, 16, 8, 16, 8, -8, -8, -8, -8, 16 )
 
 [node name="Door" type="StaticBody2D"]
 collision_mask = 0
@@ -141,4 +141,4 @@ polygon = PoolVector2Array( -16, -16, -16, 16, -8, 16, -8, -8, 8, -8, 8, 16, 16,
 disabled = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource( 19 )
+occluder = SubResource( 27 )

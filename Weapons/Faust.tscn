@@ -11,9 +11,8 @@ resource_local_to_scene = true
 shader = ExtResource( 4 )
 shader_param/active = false
 
-[sub_resource type="SegmentShape2D" id=7]
-a = Vector2( 12.9285, -25.8176 )
-b = Vector2( -16.1607, 32.272 )
+[sub_resource type="CircleShape2D" id=7]
+radius = 45.6535
 
 [sub_resource type="Animation" id=2]
 resource_name = "attack"
@@ -336,7 +335,7 @@ position = Vector2( 6.63065, -6.63068 )
 knockback_force = 200
 
 [node name="CollisionShape2D" parent="Node2D/Sprite/Hitbox" index="0"]
-position = Vector2( -9.82376, -127.751 )
+position = Vector2( -7.54529, -120.901 )
 shape = SubResource( 7 )
 
 [node name="ChargeParticles" parent="Node2D/Sprite" index="1"]

@@ -25,7 +25,7 @@ position = Vector2( 104, 120 )
 position = Vector2( 120, 120 )
 
 [node name="Door" parent="Doors" index="0" instance=ExtResource( 2 )]
-position = Vector2( 112, -145 )
+position = Vector2( 112, -144 )
 
 [node name="Position2D" type="Position2D" parent="EnemyPositions" index="0"]
 position = Vector2( 71, 81 )
@@ -44,4 +44,4 @@ position = Vector2( 112, 112 )
 shape = SubResource( 1 )
 
 [node name="Torch" parent="." index="8" instance=ExtResource( 3 )]
-position = Vector2( 75, -137 )
+position = Vector2( 76, -136 )

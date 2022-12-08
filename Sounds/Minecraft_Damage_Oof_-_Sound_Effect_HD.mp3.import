@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Minecraft_Damage_Oof_-_Sound_Effect_HD.mp3-fc00650445f2c4c55e38e4fb190f6ce8.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Minecraft_Damage_Oof_-_Sound_Effect_HD.mp3"
+dest_files=[ "res://.import/Minecraft_Damage_Oof_-_Sound_Effect_HD.mp3-fc00650445f2c4c55e38e4fb190f6ce8.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,340 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://Characters/Character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Art/Neu/Character walk.png" type="Texture" id=2]
+[ext_resource path="res://Art/Neu/DefaultIdle.png" type="Texture" id=3]
+[ext_resource path="res://Characters/Player/Player.gd" type="Script" id=4]
+[ext_resource path="res://Characters/Player/PlayerFSM.gd" type="Script" id=5]
+[ext_resource path="res://Weapons/Faust.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Art/v1.1 dungeon crawler 16x16 pixel pack/effects (new)/enemy_afterdead_explosion_anim_spritesheet.png" type="Texture" id=9]
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 9 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 9 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 9 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 3 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 3 )
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 3 )
+region = Rect2( 64, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 3 )
+region = Rect2( 128, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 3 )
+region = Rect2( 64, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 2 )
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 2 )
+region = Rect2( 128, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 128, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=17]
+animations = [ {
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"loop": true,
+"name": "dead",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ) ],
+"loop": true,
+"name": "move",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=40]
+radius = 5.0
+height = 2.0
+
+[sub_resource type="Animation" id=39]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=19]
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "idle", "dead" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 0, 1, 2, 3 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "switch_camera"
+}, {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[sub_resource type="Animation" id=20]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "idle" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=21]
+length = 0.75
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "idle" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=22]
+length = 0.75
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "move" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "spawn_dust"
+} ]
+}
+
+[sub_resource type="CapsuleShape2D" id=41]
+radius = 5.0
+height = 2.0
+
+[node name="Player" instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource( 4 )
+max_hp = 4
+hp = 4
+speed = 200
+
+[node name="FiniteStateMachine" parent="." index="0"]
+script = ExtResource( 5 )
+
+[node name="AnimatedSprite" parent="." index="1"]
+scale = Vector2( 0.35, 0.35 )
+frames = SubResource( 17 )
+animation = "move"
+flip_h = true
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2( -1, -1 )
+shape = SubResource( 40 )
+
+[node name="AnimationPlayer" parent="." index="3"]
+anims/RESET = SubResource( 39 )
+anims/dead = SubResource( 19 )
+anims/hurt = SubResource( 20 )
+anims/idle = SubResource( 21 )
+anims/move = SubResource( 22 )
+
+[node name="Weapons" type="Node2D" parent="." index="4"]
+
+[node name="Sword" parent="Weapons" index="0" instance=ExtResource( 6 )]
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="." index="5"]
+current = true
+
+[node name="DustPosition" type="Position2D" parent="." index="6"]
+position = Vector2( 0, 6 )
+
+[node name="HitSound" parent="." index="7"]
+volume_db = -20.0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="8"]
+position = Vector2( 1, -1 )
+shape = SubResource( 41 )

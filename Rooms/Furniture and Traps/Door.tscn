@@ -119,7 +119,7 @@ tracks/3/keys = {
 extents = Vector2( 16, 16 )
 
 [sub_resource type="OccluderPolygon2D" id=27]
-polygon = PoolVector2Array( -16, 16, -16, -16, 16, -16, 16, 16, 8, 16, 8, -8, -8, -8, -8, 16 )
+polygon = PoolVector2Array( -16, -8, -16, -16, 16, -16, 16, -8, 8, -8, 8, -8, -8, -8, -8, -8 )
 
 [node name="Door" type="StaticBody2D"]
 collision_mask = 0

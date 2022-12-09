@@ -14,6 +14,15 @@ var distance_to_player: float
 onready var attack_timer: Timer = get_node("AttackTimer")
 onready var aim_raycast: RayCast2D = get_node("AimRayCast")
 
+func _process(_delta: float) -> void:
+	if player.global_position > self.global_position:
+		$AnimatedSprite.flip_h = true
+		$CollisionShape2D2.set_deferred("disabled", false)
+		$CollisionShape2D.disabled = true
+	else:
+		$AnimatedSprite.flip_h = false
+		$CollisionShape2D.set_deferred("disabled", false)
+		$CollisionShape2D2.disabled = true
 
 func _on_PathTimer_timeout() -> void:
 	if is_instance_valid(player):

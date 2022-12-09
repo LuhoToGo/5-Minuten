@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Characters/Enemies/Shooting Enemy/ShootingEnemy.gd" type="Script" id=1]
 [ext_resource path="res://Characters/Enemies/Shooting Enemy/ShootingEnemyFSM.gd" type="Script" id=2]
@@ -272,6 +272,10 @@ tracks/1/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
+[sub_resource type="CapsuleShape2D" id=57]
+radius = 4.0
+height = 8.0
+
 [node name="ShootingEnemy" instance=ExtResource( 6 )]
 modulate = Color( 1, 0.419608, 0.419608, 1 )
 script = ExtResource( 1 )
@@ -286,6 +290,7 @@ script = ExtResource( 2 )
 scale = Vector2( 0.35, 0.35 )
 frames = SubResource( 17 )
 animation = "idle"
+flip_h = true
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2( -1, 0 )
@@ -307,5 +312,9 @@ one_shot = true
 
 [node name="AimRayCast" type="RayCast2D" parent="." index="6"]
 enabled = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="8"]
+position = Vector2( 1, 0 )
+shape = SubResource( 57 )
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]

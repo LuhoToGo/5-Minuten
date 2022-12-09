@@ -7,7 +7,8 @@ const SPAWN_EXPLOSION_SCENE: PackedScene = preload("res://Characters/Enemies/Spa
 
 const ENEMY_SCENES: Dictionary = {
 	"REGULAR_ENEMY": preload("res://Characters/Enemies/Regular Enemy/RegularEnemy.tscn"),
-	"SHOOTING_ENEMY": preload("res://Characters/Enemies/Shooting Enemy/ShootingEnemy.tscn")
+	"SHOOTING_ENEMY": preload("res://Characters/Enemies/Shooting Enemy/ShootingEnemy.tscn"),
+	"PROJECTOR": preload("res://Characters/Enemies/Overheadprojektor/Overheadprojektor.tscn")
 }
 
 var num_enemies: int
@@ -44,6 +45,7 @@ func _close_entrance() -> void:
 func _spawn_enemies() -> void:
 	for enemy_position in enemy_positions_container.get_children():
 		var enemy: KinematicBody2D
+		var enemylotto = rand_range(1,3)
 		if randi() % 2 == 0:
 			enemy = ENEMY_SCENES.REGULAR_ENEMY.instance()
 		else:
@@ -54,6 +56,7 @@ func _spawn_enemies() -> void:
 		var spawn_explosion: AnimatedSprite = SPAWN_EXPLOSION_SCENE.instance()
 		spawn_explosion.position = enemy_position.position
 		call_deferred("add_child", spawn_explosion)
+		
 
 
 

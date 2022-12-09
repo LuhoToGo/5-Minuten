@@ -45,9 +45,12 @@ func _process(_delta: float) -> void:
 	
 	if mouse_direction.x < 0 and animated_sprite.flip_h:
 		animated_sprite.flip_h = false
+		$CollisionShape2D.set_deferred("disabled", false)
+		$CollisionShape2D2.disabled = true
 	elif mouse_direction.x > 0 and not animated_sprite.flip_h:
 		animated_sprite.flip_h = true
-		
+		$CollisionShape2D2.set_deferred("disabled", false)
+		$CollisionShape2D.disabled = true
 	current_weapon.move(mouse_direction)
 		
 		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Characters/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Art/Neu/Character walk.png" type="Texture" id=2]
@@ -289,10 +289,15 @@ tracks/2/keys = {
 } ]
 }
 
+[sub_resource type="CapsuleShape2D" id=41]
+radius = 5.0
+height = 2.0
+
 [node name="Player" instance=ExtResource( 1 )]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource( 4 )
+max_hp = 4
 hp = 4
 speed = 200
 
@@ -303,6 +308,7 @@ script = ExtResource( 5 )
 scale = Vector2( 0.35, 0.35 )
 frames = SubResource( 17 )
 animation = "move"
+flip_h = true
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2( -1, -1 )
@@ -328,3 +334,7 @@ position = Vector2( 0, 6 )
 
 [node name="HitSound" parent="." index="7"]
 volume_db = -20.0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="8"]
+position = Vector2( 1, -1 )
+shape = SubResource( 41 )

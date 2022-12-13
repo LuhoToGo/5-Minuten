@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/_Tile-sheet-Seminarraum.png-8967ac9ea232b2bfcc26c65b0e33fca4.stex"
+path="res://.import/OverheadEnemy.png-782219afa71467136007dc3b3503411c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Neu/_Tile-sheet-Seminarraum.png"
-dest_files=[ "res://.import/_Tile-sheet-Seminarraum.png-8967ac9ea232b2bfcc26c65b0e33fca4.stex" ]
+source_file="res://Art/Neu/OverheadEnemy.png"
+dest_files=[ "res://.import/OverheadEnemy.png-782219afa71467136007dc3b3503411c.stex" ]
 
 [params]
 

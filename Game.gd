@@ -15,4 +15,4 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_GameplayTimer_timeout():
-	pass # show Game Over Screen
+	SceneTransistor.start_transition_to("res://GameOver.tscn")

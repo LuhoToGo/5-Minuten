@@ -38,7 +38,7 @@ func take_damage(dam: int, dir: Vector2, force: int) -> void:
 			$HitSound.play()
 			SavedData.hp = hp
 			if hp == 0:
-				SceneTransistor.start_transition_to("res://Game.tscn")
+				SceneTransistor.start_transition_to("res://GameOver.tscn")
 				SavedData.reset_data()
 		if hp > 0:
 			state_machine.set_state(state_machine.states.hurt)

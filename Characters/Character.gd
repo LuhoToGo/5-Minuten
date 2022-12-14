@@ -3,14 +3,15 @@ class_name Character
 
 const HIT_EFFECT_SCENE: PackedScene = preload("res://Characters/HitEffect.tscn")
 
-const FRICTION: float = 0.15
+
+const FRICTION: float = 0.5
 
 export(int) var max_hp: int = 2
 export(int) var hp: int = 2 setget set_hp
 signal hp_changed(new_hp)
 
-export(int) var accerelation: int = 40
-export(int) var max_speed: int = 100
+export(int) var accerelation: int = 120
+export(int) var max_speed: int = 120
 
 onready var state_machine: Node = get_node("FiniteStateMachine")
 onready var animated_sprite: AnimatedSprite = get_node("AnimatedSprite")
@@ -38,7 +39,8 @@ func take_damage(dam: int, dir: Vector2, force: int) -> void:
 			$HitSound.play()
 			SavedData.hp = hp
 			if hp == 0:
-				SceneTransistor.start_transition_to("res://Game.tscn")
+				#SceneTransistor.start_transition_to("res://Game.tscn")
+				SceneTransistor.start_transition_to("res://GameOver.tscn")
 				SavedData.reset_data()
 		if hp > 0:
 			state_machine.set_state(state_machine.states.hurt)
@@ -56,3 +58,5 @@ func set_hp(new_hp: int) -> void:
 func _spawn_hit_effect() -> void:
 	var hit_effect: Sprite = HIT_EFFECT_SCENE.instance()
 	add_child(hit_effect)
+
+

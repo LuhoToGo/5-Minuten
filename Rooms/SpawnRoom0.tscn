@@ -34,8 +34,8 @@ shape = SubResource( 1 )
 position = Vector2( 184, 137 )
 on_floor = true
 
-[node name="Kaffe" parent="." index="10" instance=ExtResource( 5 )]
-position = Vector2( 51, 121 )
+[node name="Kreditkarte" parent="." index="10" instance=ExtResource( 5 )]
+position = Vector2( 54, 121 )
 
 [node name="Torch" parent="." index="11" instance=ExtResource( 3 )]
 position = Vector2( 72, 24 )

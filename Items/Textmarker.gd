@@ -1,12 +1,12 @@
 extends Area2D
-
+enum ACTIVE_ITEM {EMPTY, KREDITKARTE, TEXTMARKER}
 onready var collision_shape: CollisionShape2D = get_node("CollisionShape2D")
 onready var tween: Tween = get_node("Tween")
 
-func _on_Kaffe_body_entered(player: KinematicBody2D) -> void:
+func _on_Textmarker_body_entered(player: KinematicBody2D) -> void:
 	collision_shape.set_deferred("disabled", true)
-	player.max_speed += 50
-	
+	#player.textmarker()
+	player.current_item = ACTIVE_ITEM.TEXTMARKER
 	var __ = tween.interpolate_property(self, "modulate", Color(1, 1, 1, 1), Color(1, 1, 1, 0), 0.6, Tween.TRANS_SINE, Tween.EASE_IN)
 	assert(__)
 	__ = tween.interpolate_property(self, "position", position, position + Vector2.UP * 16, 0.6, Tween.TRANS_SINE, Tween.EASE_IN)

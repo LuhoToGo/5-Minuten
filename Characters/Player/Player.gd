@@ -1,11 +1,12 @@
 extends Character
 
 const DUST_SCENE: PackedScene = preload("res://Characters/Player/Dust.tscn")
+const FLECK: PackedScene = preload("res://Items/Fleck.tscn")
 
 enum {UP, DOWN}
-
+enum ACTIVE_ITEM {EMPTY, KREDITKARTE, TEXTMARKER}
 var current_weapon: Node2D
-
+var current_item = ACTIVE_ITEM.EMPTY
 export (int) var speed = 200
 
 signal weapon_switched(prev_index, new_index)
@@ -21,7 +22,6 @@ func _ready() -> void:
 	emit_signal("weapon_picked_up", weapons.get_child(0).get_texture())
 	
 	_restore_previous_state()
-	
 	
 func _restore_previous_state() -> void:
 	self.hp = SavedData.hp
@@ -74,7 +74,8 @@ func get_input() -> void:
 			_drop_weapon()
 		
 	current_weapon.get_input()
-	
+	if Input.is_action_just_pressed("ui_select"):
+		use_active_item()
 	
 func _switch_weapon(direction: int) -> void:
 	var prev_index: int = current_weapon.get_index()
@@ -144,3 +145,28 @@ func switch_camera() -> void:
 	main_scene_camera.position = position
 	main_scene_camera.current = true
 	get_node("Camera2D").current = false
+
+func textmarker() -> void:
+	var i = 0
+	while i < 100:
+		var drop_position = self.global_position
+		yield(get_tree().create_timer(0.04), "timeout")
+		if mov_direction != Vector2.ZERO:
+			var fleck  = FLECK.instance()
+			fleck.global_position = drop_position
+			parent.add_child(fleck)
+			i = i + 1
+		yield(get_tree().create_timer(0.01), "timeout")
+
+func use_active_item () -> void:
+	match current_item:
+		ACTIVE_ITEM.KREDITKARTE:
+			self.set_collision_mask_bit(3, false)
+			self.modulate.a = 0.5
+			yield(get_tree().create_timer(10), "timeout")
+			self.modulate.a = 1
+			current_item = ACTIVE_ITEM.EMPTY
+		ACTIVE_ITEM.TEXTMARKER:
+			textmarker()
+			current_item = ACTIVE_ITEM.EMPTY
+

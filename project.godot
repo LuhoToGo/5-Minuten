@@ -75,7 +75,7 @@ _global_script_class_icons={
 [application]
 
 config/name="6 Minuten Regelstudienzeit"
-run/main_scene="res://Game.tscn"
+run/main_scene="res://StartMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -93,17 +93,14 @@ window/size/width=480
 window/size/height=270
 window/size/test_width=1280
 window/size/test_height=720
-mouse_cursor/custom_image="res://Art/v1.1 dungeon crawler 16x16 pixel pack/ui (new)/crosshair_1.png"
+mouse_cursor/custom_image="res://Art/Neu/crosshair007.png"
+mouse_cursor/custom_image_hotspot=Vector2( 16, 16 )
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/github-integration/plugin.cfg" )
-
-[gui]
-
-common/drop_mouse_on_gui_input_disabled=true
 
 [importer_defaults]
 

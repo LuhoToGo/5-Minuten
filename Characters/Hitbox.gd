@@ -37,6 +37,7 @@ func _on_body_exited(_body: KinematicBody2D) -> void:
 	
 func _collide(body: KinematicBody2D) -> void:
 	if body == null or not body.has_method("take_damage"):
+		#pruefen enemy
 		queue_free()
 	else:
 		body.take_damage(damage, knockback_direction, knockback_force)

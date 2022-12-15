@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/heartfull.png-007a6dc747a02c61fd90eeb4bb1338d9.stex"
+path="res://.import/BWL walk.png-fd660629b6218caa79b686ced1322b37.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Neu/heartfull.png"
-dest_files=[ "res://.import/heartfull.png-007a6dc747a02c61fd90eeb4bb1338d9.stex" ]
+source_file="res://Art/Neu/BWL walk.png"
+dest_files=[ "res://.import/BWL walk.png-fd660629b6218caa79b686ced1322b37.stex" ]
 
 [params]
 
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

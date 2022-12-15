@@ -3,6 +3,7 @@ class_name Character
 
 const HIT_EFFECT_SCENE: PackedScene = preload("res://Characters/HitEffect.tscn")
 
+
 const FRICTION: float = 0.5
 
 export(int) var max_hp: int = 2
@@ -38,6 +39,7 @@ func take_damage(dam: int, dir: Vector2, force: int) -> void:
 			$HitSound.play()
 			SavedData.hp = hp
 			if hp == 0:
+				#SceneTransistor.start_transition_to("res://Game.tscn")
 				SceneTransistor.start_transition_to("res://GameOver.tscn")
 				SavedData.reset_data()
 		if hp > 0:
@@ -56,3 +58,5 @@ func set_hp(new_hp: int) -> void:
 func _spawn_hit_effect() -> void:
 	var hit_effect: Sprite = HIT_EFFECT_SCENE.instance()
 	add_child(hit_effect)
+
+

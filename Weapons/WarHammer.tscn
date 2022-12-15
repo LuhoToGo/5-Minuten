@@ -20,7 +20,7 @@ height = 8.0
 [sub_resource type="Animation" id=4]
 resource_local_to_scene = true
 resource_name = "attack"
-length = 1.7
+length = 0.9
 tracks/0/type = "value"
 tracks/0/path = NodePath("Node2D/Sprite:rotation_degrees")
 tracks/0/interp = 1
@@ -28,7 +28,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 0.9, 1.7 ),
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ -45.0, 60.0, 60.0, -45.0 ]
@@ -40,7 +40,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5, 0.9, 1.7 ),
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ -90.0, 90.0, 90.0, -90.0 ]
@@ -52,7 +52,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -247,7 +247,6 @@ tracks/4/keys = {
 [node name="Sprite" parent="Node2D" index="0"]
 material = SubResource( 3 )
 position = Vector2( 8.00001, -3.99997 )
-rotation = 0.0174533
 scale = Vector2( 0.225731, 0.225731 )
 texture = ExtResource( 2 )
 
@@ -258,7 +257,6 @@ damage = 2
 position = Vector2( -0.154598, -8.85877 )
 rotation = 0.0174533
 shape = SubResource( 1 )
-disabled = false
 
 [node name="ChargeParticles" parent="Node2D/Sprite" index="1"]
 position = Vector2( 8, -7 )

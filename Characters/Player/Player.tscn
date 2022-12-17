@@ -181,7 +181,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=20]
-length = 0.6
+length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -308,7 +308,7 @@ script = ExtResource( 5 )
 [node name="AnimatedSprite" parent="." index="1"]
 scale = Vector2( 0.35, 0.35 )
 frames = SubResource( 17 )
-animation = "move"
+animation = "idle"
 flip_h = true
 
 [node name="CollisionShape2D" parent="." index="2"]

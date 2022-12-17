@@ -1,12 +1,12 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Weapons/Weapon.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Art/Neu/Richterhammer.png" type="Texture" id=2]
-[ext_resource path="res://Characters/Player/White.gdshader" type="Shader" id=3]
+[ext_resource path="res://Characters/Player/White.gdshader" type="Shader" id=1]
+[ext_resource path="res://Weapons/Weapon.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Art/Neu/Richterhammer.png" type="Texture" id=3]
 
 [sub_resource type="ShaderMaterial" id=3]
 resource_local_to_scene = true
-shader = ExtResource( 3 )
+shader = ExtResource( 1 )
 shader_param/active = false
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -242,13 +242,13 @@ tracks/4/keys = {
 "values": [ false ]
 }
 
-[node name="WarHammer" instance=ExtResource( 1 )]
+[node name="Hammer" instance=ExtResource( 2 )]
 
 [node name="Sprite" parent="Node2D" index="0"]
 material = SubResource( 3 )
 position = Vector2( 8.00001, -3.99997 )
 scale = Vector2( 0.225731, 0.225731 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="Hitbox" parent="Node2D/Sprite" index="0"]
 damage = 2

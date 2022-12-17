@@ -56,7 +56,6 @@ text = "start game"
 align = 1
 valign = 1
 uppercase = true
-percent_visible = -0.111111
 
 [node name="QuitLabel" type="Label" parent="VBoxContainer"]
 margin_top = 32.0

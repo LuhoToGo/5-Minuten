@@ -1,6 +1,6 @@
 extends DungeonRoom
 
-const WEAPONS: Array = [preload("res://Weapons/WarHammer.tscn"), preload("res://Weapons/BattleAxe.tscn")]
+const WEAPONS: Array = [preload("res://Weapons/Hammer.tscn"), preload("res://Weapons/BattleAxe.tscn")]
 
 onready var weapon_pos: Position2D = get_node("WeaponPos")
 

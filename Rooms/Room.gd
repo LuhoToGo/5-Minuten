@@ -45,11 +45,13 @@ func _close_entrance() -> void:
 func _spawn_enemies() -> void:
 	for enemy_position in enemy_positions_container.get_children():
 		var enemy: KinematicBody2D
-		var enemylotto = rand_range(1,3)
-		if randi() % 2 == 0:
+		var random = randi() % 3
+		if random == 0:
 			enemy = ENEMY_SCENES.REGULAR_ENEMY.instance()
-		else:
+		elif random == 1:
 			enemy = ENEMY_SCENES.SHOOTING_ENEMY.instance()
+		elif random == 2:
+			enemy = ENEMY_SCENES.PROJECTOR.instance()
 		enemy.position = enemy_position.position
 		call_deferred("add_child", enemy)
 		

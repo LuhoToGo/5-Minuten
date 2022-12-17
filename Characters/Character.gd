@@ -10,8 +10,8 @@ export(int) var max_hp: int = 2
 export(int) var hp: int = 2 setget set_hp
 signal hp_changed(new_hp)
 
-export(int) var accerelation: int = 120
-export(int) var max_speed: int = 120
+export(int) var accerelation: int = 130
+export(int) var max_speed: int = 130
 
 onready var state_machine: Node = get_node("FiniteStateMachine")
 onready var animated_sprite: AnimatedSprite = get_node("AnimatedSprite")

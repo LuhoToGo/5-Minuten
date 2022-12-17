@@ -9,7 +9,7 @@ radius = 2.12132
 height = 7.07107
 
 [node name="Paragraph" instance=ExtResource( 2 )]
-collision_mask = 8
+collision_mask = 2
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2( 1, -1 )

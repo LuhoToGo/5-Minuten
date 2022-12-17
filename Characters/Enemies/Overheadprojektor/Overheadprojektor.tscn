@@ -108,6 +108,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=27]
+length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -175,15 +176,15 @@ tracks/1/keys = {
 }
 
 [sub_resource type="CapsuleShape2D" id=29]
-radius = 4.0
+radius = 5.0
 height = 6.0
 
 [sub_resource type="CapsuleShape2D" id=30]
-radius = 4.0
+radius = 5.0
 height = 6.0
 
 [sub_resource type="CapsuleShape2D" id=31]
-radius = 3.0
+radius = 6.0
 height = 4.0
 
 [node name="Overheadprojektor" type="KinematicBody2D"]
@@ -198,9 +199,8 @@ hp = 1
 script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-modulate = Color( 0.886275, 0.423529, 0.298039, 1 )
-position = Vector2( -1, -1 )
-scale = Vector2( 0.35, 0.35 )
+position = Vector2( 0.4, -2.4 )
+scale = Vector2( 0.39375, 0.39375 )
 frames = SubResource( 23 )
 flip_h = true
 
@@ -233,7 +233,7 @@ shape = SubResource( 30 )
 disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 2, 0 )
+position = Vector2( 3, 0 )
 shape = SubResource( 31 )
 
 [node name="PathTimer" type="Timer" parent="."]

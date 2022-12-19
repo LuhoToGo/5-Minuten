@@ -64,6 +64,8 @@ margin_right = 12.0
 margin_bottom = 12.0
 
 [node name="HeartBar" parent="UI" instance=ExtResource( 1 )]
+margin_left = 7.0
+margin_right = 83.0
 
 [node name="TimerLabel" type="RichTextLabel" parent="UI"]
 margin_left = 408.0

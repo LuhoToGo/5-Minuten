@@ -5,7 +5,7 @@ extends RichTextLabel
 #var m = 6
 
 
-func _process(delta):
+func _process(_delta):
 	if SavedData.ms < 0:
 		SavedData.s -= 1
 		SavedData.ms = 9

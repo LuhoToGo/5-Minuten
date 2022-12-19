@@ -5,7 +5,7 @@ var rng = RandomNumberGenerator.new()
 var speed = 2
 onready var hitbox: Area2D = get_node("Hitbox")
 
-func _process(delta):
+func _process(_delta):
 	hitbox.knockback_direction = velocity.normalized()
 	if player.global_position > self.global_position:
 		$AnimatedSprite.flip_h = true

@@ -17,7 +17,7 @@ tile_data = PoolIntArray( 0, 49, 0, 1, 44, 0, 2, 44, 0, 3, 44, 0, 4, 44, 0, 5, 4
 tile_data = PoolIntArray( 458753, 44, 0, 458754, 44, 0, 458755, 44, 0, 458756, 44, 0, 458757, 44, 0, 458760, 44, 0, 458761, 44, 0, 458762, 44, 0 )
 
 [node name="FurnitureTileMap" parent="." index="2"]
-tile_data = PoolIntArray( 65538, 56, 0, 65539, 54, 0, 65541, 30, 0, 262152, 24, 0, 458753, 31, 0 )
+tile_data = PoolIntArray( 65538, 56, 0, 65539, 54, 0, 65541, 77, 0, 262151, 87, 0, 262152, 88, 0, 458753, 101, 0 )
 
 [node name="Position2D" type="Position2D" parent="Entrance" index="0"]
 position = Vector2( 104, 120 )

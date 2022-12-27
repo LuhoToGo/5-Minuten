@@ -13,7 +13,7 @@ func _ready():
 	$TextureRect/AnimatedSprite.play("gameover")
 
 func _on_AnimatedSprite_animation_finished():
-				#get_tree().change_scene("res://Game.tscn")
 	yield(get_tree().create_timer(3), "timeout")
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	SavedData.reset_data()
 	SceneTransistor.start_transition_to("res://Game.tscn")

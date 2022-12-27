@@ -104,7 +104,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=18]
-extents = Vector2( 16, 16 )
+extents = Vector2( 16, 10 )
 
 [sub_resource type="OccluderPolygon2D" id=27]
 polygon = PoolVector2Array( -16, -16, -16, -4, 16, -4, 16, -16 )
@@ -125,6 +125,7 @@ anims/RESET = SubResource( 26 )
 anims/open = SubResource( 17 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -6 )
 shape = SubResource( 18 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]

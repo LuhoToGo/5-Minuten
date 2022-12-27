@@ -16,6 +16,9 @@ func _process(_delta):
 		
 	
 	set_text("%02d:%02d:%02d" % [SavedData.m,SavedData.s,SavedData.ms])
+	
+	if SavedData.m == 0 and SavedData.s == 0 and SavedData.ms == 0:
+		SceneTransistor.start_transition_to("res://GameOver.tscn")
 
 
 

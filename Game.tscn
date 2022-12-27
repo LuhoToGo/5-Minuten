@@ -90,12 +90,10 @@ position = Vector2( 133.183, 118.911 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="GameplayTimer" type="Timer" parent="."]
-wait_time = 360.0
+[node name="Hintergrundmusik" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="timeout" from="UI/TimerLabel/UITimer" to="UI/TimerLabel" method="_on_UITimer_timeout"]
 [connection signal="hp_changed" from="Player" to="UI" method="_on_Player_hp_changed"]
 [connection signal="weapon_droped" from="Player" to="UI" method="_on_Player_weapon_droped"]
 [connection signal="weapon_picked_up" from="Player" to="UI" method="_on_Player_weapon_picked_up"]
 [connection signal="weapon_switched" from="Player" to="UI" method="_on_Player_weapon_switched"]
-[connection signal="timeout" from="GameplayTimer" to="." method="_on_GameplayTimer_timeout"]

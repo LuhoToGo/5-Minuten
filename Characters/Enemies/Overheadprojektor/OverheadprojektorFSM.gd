@@ -4,7 +4,7 @@ func _init() -> void:
 	_add_state("run")
 	_add_state("hurt")
 	_add_state("dead")
-	
+	_add_state("dashing")
 	
 func _ready() -> void:
 	set_state(states.run)

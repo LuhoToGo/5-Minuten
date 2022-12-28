@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/knoechen_sound.mp3-bed0b9e3de899ced2637fb0cebb9730c.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Sounds und Musik Dario/knoechen_sound.mp3"
+dest_files=[ "res://.import/knoechen_sound.mp3-bed0b9e3de899ced2637fb0cebb9730c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

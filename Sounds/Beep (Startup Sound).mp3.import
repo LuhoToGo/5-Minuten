@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Beep (Startup Sound).mp3-b4ea2d6e0bd1d8aebb204eaf218
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

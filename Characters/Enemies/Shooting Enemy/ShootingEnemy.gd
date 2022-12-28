@@ -15,21 +15,24 @@ onready var attack_timer: Timer = get_node("AttackTimer")
 onready var aim_raycast: RayCast2D = get_node("AimRayCast")
 
 func _process(_delta: float) -> void:
-	if player.global_position > self.global_position:
+	if player.global_position > self.global_position and player_visible == true:
 		$AnimatedSprite.flip_h = true
 		$CollisionShape2D2.set_deferred("disabled", false)
 		$CollisionShape2D.disabled = true
-	else:
+	elif player_visible == true:
+		#$AnimationPlayer.play("move")
 		$AnimatedSprite.flip_h = false
 		$CollisionShape2D.set_deferred("disabled", false)
 		$CollisionShape2D2.disabled = true
+	if player_visible == false:
+		$AnimationPlayer.play("idle")
 
 func _on_PathTimer_timeout() -> void:
 	if is_instance_valid(player):
 		distance_to_player = (player.position - global_position).length()
-		if distance_to_player > MAX_DISTANCE_TO_PLAYER:
+		if distance_to_player > MAX_DISTANCE_TO_PLAYER and player_visible == true:
 			_get_path_to_player()
-		elif distance_to_player < MIN_DISTANCE_TO_PLAYER:
+		elif distance_to_player < MIN_DISTANCE_TO_PLAYER and player_visible == true:
 			_get_path_to_move_away_from_player()
 		else:
 			aim_raycast.cast_to = player.position - global_position
@@ -46,12 +49,13 @@ func _on_PathTimer_timeout() -> void:
 func _get_path_to_move_away_from_player() -> void:
 	var dir: Vector2 = (global_position - player.position).normalized()
 	path = navigation.get_simple_path(global_position, global_position + dir * 100)
-	
+
 	
 func _shoot() -> void:
-	var projectile: Area2D = PROJECTILE_SCENE.instance()
-	projectile.launch(global_position, (player.position - global_position).normalized(), projectile_speed)
-	get_tree().current_scene.add_child(projectile)
+	if player_visible == true:
+		var projectile: Area2D = PROJECTILE_SCENE.instance()
+		projectile.launch(global_position, (player.position - global_position).normalized(), projectile_speed)
+		get_tree().current_scene.add_child(projectile)
 
 
 

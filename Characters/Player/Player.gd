@@ -4,23 +4,28 @@ const DUST_SCENE: PackedScene = preload("res://Characters/Player/Dust.tscn")
 const FLECK: PackedScene = preload("res://Items/Fleck.tscn")
 
 enum {UP, DOWN}
-enum ACTIVE_ITEM {EMPTY, KREDITKARTE, TEXTMARKER}
+enum ACTIVE_ITEM {EMPTY, KREDITKARTE, TEXTMARKER, TABLETT}
 var current_weapon: Node2D
 var current_item = ACTIVE_ITEM.EMPTY
 export (int) var speed = 200
+var latest_dir = Vector2.UP
 
 signal weapon_switched(prev_index, new_index)
 signal weapon_picked_up(weapon_texture)
 signal weapon_droped(index)
+signal invisible
+signal visible
+signal item_change
+signal item_count
 
 onready var parent: Node2D = get_parent()
 onready var weapons: Node2D = get_node("Weapons")
 onready var dust_position: Position2D = get_node("DustPosition")
+onready var dash_uses = 2
 
 
 func _ready() -> void:
 	emit_signal("weapon_picked_up", weapons.get_child(0).get_texture())
-	
 	_restore_previous_state()
 	
 func _restore_previous_state() -> void:
@@ -55,15 +60,20 @@ func _process(_delta: float) -> void:
 		
 		
 func get_input() -> void:
-	mov_direction = Vector2.ZERO
-	if Input.is_action_pressed("ui_down"):
-		mov_direction += Vector2.DOWN
-	if Input.is_action_pressed("ui_left"):
-		mov_direction += Vector2.LEFT
-	if Input.is_action_pressed("ui_right"):
-		mov_direction += Vector2.RIGHT
-	if Input.is_action_pressed("ui_up"):
-		mov_direction += Vector2.UP
+	if $FiniteStateMachine.state != $FiniteStateMachine.states.dashing:
+		mov_direction = Vector2.ZERO
+		if Input.is_action_pressed("ui_down"):
+			mov_direction += Vector2.DOWN
+			latest_dir = Vector2.DOWN
+		if Input.is_action_pressed("ui_left"):
+			mov_direction += Vector2.LEFT
+			latest_dir = Vector2.LEFT
+		if Input.is_action_pressed("ui_right"):
+			mov_direction += Vector2.RIGHT
+			latest_dir = Vector2.RIGHT
+		if Input.is_action_pressed("ui_up"):
+			mov_direction += Vector2.UP
+			latest_dir = Vector2.UP
 		
 	if not current_weapon.is_busy():
 		if Input.is_action_just_released("ui_previous_weapon"):
@@ -98,6 +108,7 @@ func _switch_weapon(direction: int) -> void:
 	
 	
 func pick_up_weapon(weapon: Node2D) -> void:
+	$WeaponPickUp.play()
 	SavedData.weapons.append(weapon.duplicate())
 	var prev_index: int = SavedData.equipped_weapon_index
 	var new_index: int = weapons.get_child_count()
@@ -162,11 +173,42 @@ func use_active_item () -> void:
 	match current_item:
 		ACTIVE_ITEM.KREDITKARTE:
 			self.set_collision_mask_bit(3, false)
+			emit_signal("invisible")
 			self.modulate.a = 0.5
 			yield(get_tree().create_timer(10), "timeout")
 			self.modulate.a = 1
+			emit_signal("visible")
 			current_item = ACTIVE_ITEM.EMPTY
 		ACTIVE_ITEM.TEXTMARKER:
 			textmarker()
 			current_item = ACTIVE_ITEM.EMPTY
+		ACTIVE_ITEM.TABLETT:
+			$FiniteStateMachine.set_state($FiniteStateMachine.states.dashing)
+			mov_direction = latest_dir*10
+			max_speed = 500
+			speed = 500
+			if dash_uses == 0:
+				current_item = ACTIVE_ITEM.EMPTY
+			match dash_uses:
+				3:
+					item_count("3")
+				2:
+					item_count("2")
+				1:
+					item_count("1")
+				0:
+					item_count(" ")
+					current_item = ACTIVE_ITEM.EMPTY
+			yield(get_tree().create_timer(0.2), "timeout")
+			$FiniteStateMachine.set_state($FiniteStateMachine.states.move)
+			max_speed = 120
+			dash_uses -= 1
+	if current_item == ACTIVE_ITEM.EMPTY:
+		item_change(null)
 
+func item_change (texture) -> void:
+	emit_signal("item_change", texture)
+	
+
+func item_count(number) -> void:
+	emit_signal("item_count", number)

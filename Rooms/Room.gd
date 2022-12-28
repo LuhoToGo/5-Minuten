@@ -18,11 +18,14 @@ onready var entrance: Node2D = get_node("Entrance")
 onready var door_container: Node2D = get_node("Doors")
 onready var enemy_positions_container: Node2D = get_node("EnemyPositions")
 onready var player_detector: Area2D = get_node("PlayerDetector")
+onready var player: KinematicBody2D = get_tree().current_scene.get_node("Player")
+onready var player_visible = true
 
 
 func _ready() -> void:
 	num_enemies = enemy_positions_container.get_child_count()
-	
+	player.connect("invisible", self, "on_player_hidden")
+	player.connect("visible", self, "on_player_revealed")
 	
 func _on_enemy_killed() -> void:
 	num_enemies -= 1
@@ -53,6 +56,7 @@ func _spawn_enemies() -> void:
 		elif random == 2:
 			enemy = ENEMY_SCENES.PROJECTOR.instance()
 		enemy.position = enemy_position.position
+		enemy.player_visible = player_visible
 		call_deferred("add_child", enemy)
 		
 		var spawn_explosion: AnimatedSprite = SPAWN_EXPLOSION_SCENE.instance()
@@ -70,3 +74,9 @@ func _on_PlayerDetector_body_entered(_body: KinematicBody2D) -> void:
 	else:
 		_close_entrance()
 		_open_doors()
+		
+func on_player_hidden():
+	player_visible = false
+
+func on_player_revealed():
+	player_visible = true

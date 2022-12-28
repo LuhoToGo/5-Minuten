@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Items/Kaffe.gd" type="Script" id=1]
 [ext_resource path="res://Art/Neu/Kaffee.png" type="Texture" id=2]
+[ext_resource path="res://Sounds/Sounds und Musik Dario/pick_up.mp3" type="AudioStream" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 4.0
@@ -20,6 +21,10 @@ texture = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="ItemPickUp" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = 3.0
 
 [connection signal="body_entered" from="." to="." method="_on_Kaffe_body_entered"]
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]

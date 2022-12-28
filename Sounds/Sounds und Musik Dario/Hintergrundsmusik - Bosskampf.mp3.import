@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Hintergrundsmusik - Bosskampf.mp3-17649f5b74233c38fa990c128ec96324.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Sounds und Musik Dario/Hintergrundsmusik - Bosskampf.mp3"
+dest_files=[ "res://.import/Hintergrundsmusik - Bosskampf.mp3-17649f5b74233c38fa990c128ec96324.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

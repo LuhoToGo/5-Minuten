@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/schuss_paragraph.mp3-39168a711812eeb09cfcac872f6efc75.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Sounds und Musik Dario/schuss_paragraph.mp3"
+dest_files=[ "res://.import/schuss_paragraph.mp3-39168a711812eeb09cfcac872f6efc75.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

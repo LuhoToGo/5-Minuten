@@ -15,7 +15,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=18]
-extents = Vector2( 16, 16 )
+extents = Vector2( 16, 7.5 )
 
 [sub_resource type="OccluderPolygon2D" id=19]
 polygon = PoolVector2Array( -16, -16, -16, -4, 16, -4, 16, -16 )
@@ -28,6 +28,7 @@ z_index = 1
 frames = SubResource( 16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -8.5 )
 shape = SubResource( 18 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]

@@ -10,8 +10,8 @@ export(int) var max_hp: int = 2
 export(int) var hp: int = 2 setget set_hp
 signal hp_changed(new_hp)
 
-export(int) var accerelation: int = 120
-export(int) var max_speed: int = 120
+export(int) var accerelation: int = 130
+export(int) var max_speed: int = 130
 
 onready var state_machine: Node = get_node("FiniteStateMachine")
 onready var animated_sprite: AnimatedSprite = get_node("AnimatedSprite")
@@ -32,16 +32,15 @@ func move() -> void:
 	
 	
 func take_damage(dam: int, dir: Vector2, force: int) -> void:
-	if state_machine.state != state_machine.states.hurt and state_machine.state != state_machine.states.dead:
+	if state_machine.state != state_machine.states.hurt  and state_machine.state != state_machine.states.dead and state_machine.state != state_machine.states.dashing:
 		_spawn_hit_effect()
 		self.hp -= dam
 		if name == "Player":
-			$HitSound.play()
-			SavedData.hp = hp
-			if hp == 0:
-				#SceneTransistor.start_transition_to("res://Game.tscn")
-				SceneTransistor.start_transition_to("res://GameOver.tscn")
-				SavedData.reset_data()
+				$HitSound.play()
+				SavedData.hp = hp
+				if hp == 0:
+					SceneTransistor.start_transition_to("res://GameOver.tscn")
+					SavedData.reset_data()
 		if hp > 0:
 			state_machine.set_state(state_machine.states.hurt)
 			velocity += dir * force

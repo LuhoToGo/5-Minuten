@@ -16,7 +16,8 @@ onready var inventory: HBoxContainer = get_node("PanelContainer/Inventory")
 func _ready() -> void:
 	max_hp = player.max_hp
 	_update_health_bar(4)
-	
+	player.connect("item_change", self, "on_item_change")
+	player.connect("item_count", self, "on_item_count")
 	
 func _update_health_bar(new_value: int) -> void:
 	# ALTE VERSION: var __ = health_bar_tween.interpolate_property(health_bar, "value", health_bar.value, new_value, 0.5, Tween.TRANS_QUINT, Tween.EASE_OUT)
@@ -42,3 +43,9 @@ func _on_Player_weapon_picked_up(weapon_texture: Texture) -> void:
 
 func _on_Player_weapon_droped(index: int) -> void:
 	inventory.get_child(index).queue_free()
+
+func on_item_change(texture):
+	$ActiveItem/TextureRect.texture = texture
+
+func on_item_count(number):
+	$ItemNumber.text = number

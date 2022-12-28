@@ -179,6 +179,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id=20]
 resource_name = "hurt"
+length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -277,7 +278,6 @@ radius = 4.0
 height = 8.0
 
 [node name="ShootingEnemy" instance=ExtResource( 6 )]
-modulate = Color( 1, 0.419608, 0.419608, 1 )
 script = ExtResource( 1 )
 accerelation = 30
 max_speed = 75

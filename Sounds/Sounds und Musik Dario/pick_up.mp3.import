@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/pick_up.mp3-ecae7762c3c0cd64ea5166f112c935bc.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Sounds und Musik Dario/pick_up.mp3"
+dest_files=[ "res://.import/pick_up.mp3-ecae7762c3c0cd64ea5166f112c935bc.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

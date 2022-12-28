@@ -2,11 +2,13 @@ extends Area2D
 
 onready var collision_shape: CollisionShape2D = get_node("CollisionShape2D")
 onready var tween: Tween = get_node("Tween")
-enum ACTIVE_ITEM {EMPTY, KREDITKARTE, TEXTMARKER}
+enum ACTIVE_ITEM {EMPTY, KREDITKARTE, TEXTMARKER, TABLETT}
+const texture = preload("res://Art/Neu/Papa‘s Creditcard.png")
 
 func _on_PapasKreditkarte_body_entered(player: KinematicBody2D) -> void:
 	collision_shape.set_deferred("disabled", true)
 	player.current_item = ACTIVE_ITEM.KREDITKARTE
+	player.item_change(texture)
 	#player.set_collision_mask_bit(3, false)
 	#player.modulate.a = 0.5
 	

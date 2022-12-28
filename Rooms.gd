@@ -1,8 +1,8 @@
 extends Navigation2D
 
 const SPAWN_ROOMS: Array = [preload("res://Rooms/SpawnRoom0.tscn"), preload("res://Rooms/SpawnRoom1.tscn")]
-const INTERMEDIATE_ROOMS: Array = [preload("res://Rooms/Room0.tscn"), preload("res://Rooms/Room1.tscn"), preload("res://Rooms/Room2.tscn"), preload("res://Rooms/Room3.tscn"), preload("res://Rooms/Room4.tscn"), preload("res://Rooms/Room5.tscn"), preload("res://Rooms/Room6.tscn"), preload("res://Rooms/Room7.tscn"), preload("res://Rooms/Room8.tscn")]
-const SPECIAL_ROOMS: Array = [preload("res://Rooms/SpecialRoom0.tscn"), preload("res://Rooms/SpecialRoom1.tscn"), preload("res://Rooms/SpecialRoom2.tscn"), preload("res://Rooms/SpecialRoom3.tscn")]
+const INTERMEDIATE_ROOMS: Array = [preload("res://Rooms/Room0.tscn"), preload("res://Rooms/Room1.tscn"), preload("res://Rooms/Room2.tscn"), preload("res://Rooms/Room3.tscn"), preload("res://Rooms/Room4.tscn"), preload("res://Rooms/Room5.tscn"), preload("res://Rooms/Room6.tscn"), preload("res://Rooms/Room7.tscn"), preload("res://Rooms/Room8.tscn"), preload("res://Rooms/Room9.tscn")]
+const SPECIAL_ROOMS: Array = [preload("res://Rooms/SpecialRoom0.tscn"), preload("res://Rooms/SpecialRoom1.tscn"), preload("res://Rooms/SpecialRoom2.tscn")]
 const END_ROOMS: Array = [preload("res://Rooms/EndRoom0.tscn")]
 const FINAL_SCENE: PackedScene = preload("res://Rooms/Final.tscn")
 
@@ -11,7 +11,7 @@ const FLOOR_TILE_INDEX: int = 41
 const RIGHT_WALL_TILE_INDEX: int = 43
 const LEFT_WALL_TILE_INDEX: int = 46
 
-export(int) var num_levels: int = 5
+export(int) var num_levels: int = 6
 
 onready var player: KinematicBody2D = get_parent().get_node("Player")
 

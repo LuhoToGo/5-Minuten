@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/swing1.mp3-77d055f1a7ca38741b3861b29f04e834.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Sounds und Musik Dario/swing1.mp3"
+dest_files=[ "res://.import/swing1.mp3-77d055f1a7ca38741b3861b29f04e834.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

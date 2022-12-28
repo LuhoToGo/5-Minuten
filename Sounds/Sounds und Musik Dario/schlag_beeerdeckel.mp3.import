@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/schlag_beeerdeckel.mp3-fd86faa303916869538dd55f4463b6cb.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Sounds und Musik Dario/schlag_beeerdeckel.mp3"
+dest_files=[ "res://.import/schlag_beeerdeckel.mp3-fd86faa303916869538dd55f4463b6cb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Rooms/Furniture and Traps/Door.gd" type="Script" id=1]
 [ext_resource path="res://Art/Neu/Door_Seminarraum.png" type="Texture" id=2]
@@ -38,24 +38,12 @@ animations = [ {
 [sub_resource type="Animation" id=26]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("CollisionPolygon2D:disabled")
+tracks/0/path = NodePath(".:z_index")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ true ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:z_index")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -116,10 +104,13 @@ tracks/3/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=18]
-extents = Vector2( 16, 16 )
+extents = Vector2( 16, 10 )
 
 [sub_resource type="OccluderPolygon2D" id=27]
-polygon = PoolVector2Array( -16, -8, -16, -16, 16, -16, 16, -8, 8, -8, 8, -8, -8, -8, -8, -8 )
+polygon = PoolVector2Array( -16, -16, -16, -4, 16, -4, 16, -16 )
+
+[sub_resource type="RectangleShape2D" id=28]
+extents = Vector2( 3.5, 3.75 )
 
 [node name="Door" type="StaticBody2D"]
 collision_mask = 0
@@ -134,11 +125,16 @@ anims/RESET = SubResource( 26 )
 anims/open = SubResource( 17 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -6 )
 shape = SubResource( 18 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -16, -16, -16, 16, -8, 16, -8, -8, 8, -8, 8, 16, 16, 16, 16, -16 )
-disabled = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource( 27 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( -12, -4 )
+shape = SubResource( 28 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2( 12, -4 )
+shape = SubResource( 28 )

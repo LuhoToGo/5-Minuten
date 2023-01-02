@@ -40,12 +40,6 @@ func chase() -> void:
 			if not path:
 				return
 		mov_direction = vector_to_next_point
-		
-		#ausgeschaltet weil Hitbox verschoben werden müsste
-		#if vector_to_next_point.x > 0 and animated_sprite.flip_h:
-		#	animated_sprite.flip_h = false
-		#elif vector_to_next_point.x < 0 and not animated_sprite.flip_h:
-		#	animated_sprite.flip_h = true
 
 
 func _on_PathTimer_timeout() -> void:

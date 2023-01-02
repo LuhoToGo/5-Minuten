@@ -18,7 +18,7 @@ onready var player: KinematicBody2D = get_parent().get_node("Player")
 
 func _ready() -> void:
 	SavedData.num_floor += 1
-	if SavedData.num_floor == 3:
+	if SavedData.num_floor == 6:
 		num_levels = 3
 	_spawn_rooms()
 	

@@ -63,4 +63,7 @@ position = Vector2( 128, 238 )
 shape = SubResource( 1 )
 
 [node name="Torch" parent="." index="8" instance=ExtResource( 3 )]
-position = Vector2( -56, 116 )
+position = Vector2( 73, 118 )
+
+[node name="Torch2" parent="." index="9" instance=ExtResource( 3 )]
+position = Vector2( 184, 23 )

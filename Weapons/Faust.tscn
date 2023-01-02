@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Weapons/Weapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Art/Neu/Faust.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Sounds/Sounds und Musik Dario/swing2.mp3" type="AudioStream" id=8]
 [ext_resource path="res://Sounds/Sounds und Musik Dario/swing1.mp3" type="AudioStream" id=9]
 [ext_resource path="res://Sounds/Sounds und Musik Dario/swing3.mp3" type="AudioStream" id=10]
+[ext_resource path="res://Weapons/Faust.gd" type="Script" id=11]
 
 [sub_resource type="ShaderMaterial" id=6]
 resource_local_to_scene = true
@@ -327,6 +328,7 @@ tracks/4/keys = {
 }
 
 [node name="Faust" instance=ExtResource( 1 )]
+script = ExtResource( 11 )
 
 [node name="Sprite" parent="Node2D" index="0"]
 material = SubResource( 6 )
@@ -365,3 +367,5 @@ script = ExtResource( 6 )
 samples = [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 7 ) ]
 random_volume_range = 0
 random_pitch_range = 0
+
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]

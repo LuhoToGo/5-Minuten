@@ -5,18 +5,18 @@
 
 [sub_resource type="CapsuleShape2D" id=1]
 resource_local_to_scene = true
-radius = 2.12132
+radius = 3.53553
 height = 7.07107
 
 [node name="Paragraph" instance=ExtResource( 2 )]
 collision_mask = 2
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2( 1, -1 )
+position = Vector2( 3, -1 )
 shape = SubResource( 1 )
 
 [node name="Sprite" parent="." index="1"]
-position = Vector2( 1, -1 )
+position = Vector2( 3, -1 )
 rotation = 0.806342
-scale = Vector2( 0.333769, 0.333769 )
+scale = Vector2( 0.468104, 0.465005 )
 texture = ExtResource( 1 )

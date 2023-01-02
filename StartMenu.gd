@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-enum {NEW_GAME,CONTROLS, EXIT}
+enum {NEW_GAME, CONTROLS,  EXIT}
 var current_option: int = NEW_GAME setget set_current_option
 
 func _init() -> void:

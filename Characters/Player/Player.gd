@@ -47,7 +47,6 @@ func _restore_previous_state() -> void:
 
 func _process(_delta: float) -> void:
 	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
-	
 	if mouse_direction.x < 0 and animated_sprite.flip_h:
 		animated_sprite.flip_h = false
 		$CollisionShape2D.set_deferred("disabled", false)
@@ -108,6 +107,7 @@ func _switch_weapon(direction: int) -> void:
 	
 	
 func pick_up_weapon(weapon: Node2D) -> void:
+	$WeaponPickUp.play()
 	SavedData.weapons.append(weapon.duplicate())
 	var prev_index: int = SavedData.equipped_weapon_index
 	var new_index: int = weapons.get_child_count()
@@ -207,6 +207,7 @@ func use_active_item () -> void:
 
 func item_change (texture) -> void:
 	emit_signal("item_change", texture)
+	
 
 func item_count(number) -> void:
 	emit_signal("item_count", number)

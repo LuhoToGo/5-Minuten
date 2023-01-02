@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://HeartBar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/Player/Player.tscn" type="PackedScene" id=2]
@@ -10,9 +10,7 @@
 [ext_resource path="res://TimerLabel.gd" type="Script" id=8]
 [ext_resource path="res://OpenSans.tres" type="Theme" id=9]
 [ext_resource path="res://OpenSans-VariableFont_wdth,wght.ttf" type="DynamicFontData" id=10]
-[ext_resource path="res://Items/PapasKreditkarte.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Items/MensaTablett.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Items/Textmarker.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Sounds/Sounds und Musik Dario/Hintergrundsmusik - Raum1.mp3" type="AudioStream" id=11]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.713726, 0.670588, 0.670588, 1 )
@@ -120,15 +118,10 @@ position = Vector2( 133.183, 118.911 )
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Hintergrundmusik" type="AudioStreamPlayer2D" parent="."]
-
-[node name="PapasKreditkarte" parent="." instance=ExtResource( 11 )]
-position = Vector2( 100, 124 )
-
-[node name="MensaTablett" parent="." instance=ExtResource( 12 )]
-position = Vector2( 159, 122 )
-
-[node name="Textmarker" parent="." instance=ExtResource( 13 )]
-position = Vector2( 129, 101 )
+stream = ExtResource( 11 )
+volume_db = -14.0
+autoplay = true
+max_distance = 28444.0
 
 [connection signal="timeout" from="UI/TimerLabel/UITimer" to="UI/TimerLabel" method="_on_UITimer_timeout"]
 [connection signal="hp_changed" from="Player" to="UI" method="_on_Player_hp_changed"]

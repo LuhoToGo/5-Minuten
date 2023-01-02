@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Characters/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Art/Neu/Character walk.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Characters/Player/Player.gd" type="Script" id=4]
 [ext_resource path="res://Characters/Player/PlayerFSM.gd" type="Script" id=5]
 [ext_resource path="res://Weapons/Faust.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sounds/Sounds und Musik Dario/schade_maennlich2.wav" type="AudioStream" id=7]
+[ext_resource path="res://Sounds/Winsquare (Item pickup).mp3" type="AudioStream" id=8]
 [ext_resource path="res://Art/v1.1 dungeon crawler 16x16 pixel pack/effects (new)/enemy_afterdead_explosion_anim_spritesheet.png" type="Texture" id=9]
 
 [sub_resource type="AtlasTexture" id=13]
@@ -333,8 +335,12 @@ current = true
 position = Vector2( 0, 6 )
 
 [node name="HitSound" parent="." index="7"]
+stream = ExtResource( 7 )
 volume_db = -20.0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="8"]
 position = Vector2( 1, -1 )
 shape = SubResource( 41 )
+
+[node name="WeaponPickUp" type="AudioStreamPlayer2D" parent="." index="9"]
+stream = ExtResource( 8 )

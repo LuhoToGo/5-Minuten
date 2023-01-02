@@ -11,5 +11,5 @@ dest_files=[ "res://.import/schlag_beeerdeckel.mp3-fd86faa303916869538dd55f4463b
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

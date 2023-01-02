@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-enum {NEW_GAME, EXIT}
+enum {NEW_GAME,CONTROLS, EXIT}
 var current_option: int = NEW_GAME setget set_current_option
 
 func _init() -> void:
@@ -19,11 +19,17 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("ui_up"):
 		self.current_option -= 1
 	if event.is_action_pressed("ui_accept"):
+		$Music.stop()
+		$Click.play()
+		yield(get_tree().create_timer(1.0), "timeout")
 		match current_option:
 			NEW_GAME:
+				
 				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 				#get_tree().change_scene("res://Game.tscn")
 				SceneTransistor.start_transition_to("res://Game.tscn")
+			CONTROLS:
+				get_tree().change_scene("res://Controls.tscn")
 			EXIT:
 				get_tree().quit()
 

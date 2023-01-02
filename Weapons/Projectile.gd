@@ -31,5 +31,5 @@ func _on_ThrowableKnike_body_exited(_body: KinematicBody) -> void:
 func _collide(body: KinematicBody2D) -> void:
 	if enemy_exited:
 		if body != null:
-			body.take_damage(damage, knockback_direction, knockback_force)
+			body.take_damage(1, knockback_direction, knockback_force)
 		queue_free()

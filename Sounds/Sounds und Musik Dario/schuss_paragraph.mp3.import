@@ -11,5 +11,5 @@ dest_files=[ "res://.import/schuss_paragraph.mp3-39168a711812eeb09cfcac872f6efc7
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

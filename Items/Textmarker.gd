@@ -5,6 +5,7 @@ onready var tween: Tween = get_node("Tween")
 const texture = preload("res://Art/Neu/Textmarker.png")
 
 func _on_Textmarker_body_entered(player: KinematicBody2D) -> void:
+	$ItemPickUp.play()
 	collision_shape.set_deferred("disabled", true)
 	#player.textmarker()
 	player.current_item = ACTIVE_ITEM.TEXTMARKER
@@ -18,6 +19,7 @@ func _on_Textmarker_body_entered(player: KinematicBody2D) -> void:
 	
 	
 func _on_Tween_tween_completed(_object: Object, _key: NodePath) -> void:
+	yield(get_tree().create_timer(3.0), "timeout")
 	queue_free()
 
 

@@ -1,10 +1,12 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Art/Neu/DeathScreenAnimation.png" type="Texture" id=1]
 [ext_resource path="res://GameOver.gd" type="Script" id=2]
 [ext_resource path="res://OpenSans-VariableFont_wdth,wght.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Art/Neu/HandCursor.png" type="Texture" id=4]
 [ext_resource path="res://OpenSans.tres" type="Theme" id=5]
+[ext_resource path="res://Sounds/Sounds und Musik Dario/Fail.mp3" type="AudioStream" id=6]
+[ext_resource path="res://Sounds/Beep (Startup Sound).mp3" type="AudioStream" id=7]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -126,32 +128,32 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -64.0
+margin_left = -117.0
 margin_top = 57.0
-margin_right = 54.0
-margin_bottom = 109.0
+margin_right = 110.0
+margin_bottom = 117.0
 
 [node name="ContinueLabel" type="Label" parent="VBoxContainer"]
-margin_right = 118.0
+margin_right = 227.0
 margin_bottom = 28.0
 size_flags_horizontal = 5
 theme = ExtResource( 5 )
 custom_colors/font_color = Color( 0.196078, 0.278431, 0.356863, 1 )
 custom_fonts/font = SubResource( 24 )
-text = "try again"
+text = "Erneut EInschreiben"
 align = 1
 valign = 1
 uppercase = true
 
 [node name="QuitLabel" type="Label" parent="VBoxContainer"]
 margin_top = 32.0
-margin_right = 118.0
+margin_right = 227.0
 margin_bottom = 60.0
 size_flags_horizontal = 5
 theme = ExtResource( 5 )
 custom_colors/font_color = Color( 0.196078, 0.278431, 0.356863, 1 )
 custom_fonts/font = SubResource( 24 )
-text = "quit"
+text = "Aufgeben"
 align = 1
 valign = 1
 uppercase = true
@@ -160,5 +162,14 @@ uppercase = true
 rotation = 1.5708
 scale = Vector2( 0.01, 0.01 )
 texture = ExtResource( 4 )
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+volume_db = -11.0
+autoplay = true
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 166.574, 199 )
+stream = ExtResource( 7 )
 
 [connection signal="animation_finished" from="TextureRect/AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

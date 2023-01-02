@@ -17,7 +17,7 @@ func reset_data() -> void:
 	equipped_weapon_index = 0
 	
 	#timer reset
-	ms = 0
+	ms = 1
 	s = 0
 	m = 6
 

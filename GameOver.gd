@@ -38,10 +38,13 @@ func _input(event: InputEvent) -> void:
 		elif event.is_action_pressed("ui_up"):
 			self.current_option -= 1
 		if event.is_action_pressed("ui_accept"):
+			$Music.stop()
+			$Click.play()
+			yield(get_tree().create_timer(1.0), "timeout")
 			match current_option:
 				CONTINUE:
 					Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-					#get_tree().change_scene("res://Game.tscn")
+					SavedData.reset_data()
 					SceneTransistor.start_transition_to("res://Game.tscn")
 				EXIT:
 					get_tree().quit()

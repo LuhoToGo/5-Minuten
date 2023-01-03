@@ -9,12 +9,12 @@
 [ext_resource path="res://Sounds/Sounds und Musik Dario/Hintergrundsmusik - Startmenü.mp3" type="AudioStream" id=7]
 
 [sub_resource type="DynamicFont" id=3]
-size = 20
+size = 18
 use_filter = true
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 20
+size = 18
 use_filter = true
 font_data = ExtResource( 4 )
 
@@ -42,14 +42,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -73.426
-margin_top = 64.0
-margin_right = 65.5743
-margin_bottom = 124.0
+margin_left = -96.0
+margin_top = 52.0
+margin_right = 92.0
+margin_bottom = 144.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+alignment = 1
 
 [node name="StartLabel" type="Label" parent="VBoxContainer"]
-margin_right = 139.0
-margin_bottom = 28.0
+margin_top = 3.0
+margin_right = 188.0
+margin_bottom = 29.0
 size_flags_horizontal = 5
 theme = ExtResource( 5 )
 custom_colors/font_color = Color( 0.196078, 0.278431, 0.356863, 1 )
@@ -59,10 +63,23 @@ align = 1
 valign = 1
 uppercase = true
 
+[node name="ControlsLabel" type="Label" parent="VBoxContainer"]
+margin_top = 33.0
+margin_right = 188.0
+margin_bottom = 59.0
+size_flags_horizontal = 5
+theme = ExtResource( 5 )
+custom_colors/font_color = Color( 0.196078, 0.278431, 0.356863, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "modulhandbuch"
+align = 1
+valign = 1
+uppercase = true
+
 [node name="QuitLabel" type="Label" parent="VBoxContainer"]
-margin_top = 32.0
-margin_right = 139.0
-margin_bottom = 60.0
+margin_top = 63.0
+margin_right = 188.0
+margin_bottom = 89.0
 size_flags_horizontal = 5
 custom_colors/font_color = Color( 0.196078, 0.278431, 0.356863, 1 )
 custom_fonts/font = SubResource( 4 )

@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-enum {NEW_GAME, EXIT}
+enum {NEW_GAME, CONTROLS,  EXIT}
 var current_option: int = NEW_GAME setget set_current_option
 
 func _init() -> void:
@@ -28,6 +28,8 @@ func _input(event: InputEvent) -> void:
 				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 				#get_tree().change_scene("res://Game.tscn")
 				SceneTransistor.start_transition_to("res://Game.tscn")
+			CONTROLS:
+				get_tree().change_scene("res://Controls.tscn")
 			EXIT:
 				get_tree().quit()
 

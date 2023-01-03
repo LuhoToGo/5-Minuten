@@ -6,6 +6,7 @@ enum ACTIVE_ITEM {EMPTY, KREDITKARTE, TEXTMARKER, TABLETT}
 const texture = preload("res://Art/Neu/Papa‘s Creditcard.png")
 
 func _on_PapasKreditkarte_body_entered(player: KinematicBody2D) -> void:
+	SavedData.item = 2
 	$ItemPickUp.play()
 	collision_shape.set_deferred("disabled", true)
 	player.current_item = ACTIVE_ITEM.KREDITKARTE

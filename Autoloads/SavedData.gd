@@ -4,6 +4,7 @@ var num_floor: int = 0
 
 var hp: int = 4
 var weapons: Array = []
+var item = 0
 var equipped_weapon_index: int = 0
 var ms = 0
 var s = 0
@@ -14,6 +15,7 @@ func reset_data() -> void:
 	
 	hp = 4
 	weapons = []
+	item = 0
 	equipped_weapon_index = 0
 	
 	#timer reset

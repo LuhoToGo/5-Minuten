@@ -13,13 +13,13 @@ const LEFT_WALL_TILE_INDEX: int = 46
 
 export(int) var num_levels: int = 6
 
+var final = false
+
 onready var player: KinematicBody2D = get_parent().get_node("Player")
 
 
 func _ready() -> void:
 	SavedData.num_floor += 1
-	if SavedData.num_floor == 6:
-		num_levels = 3
 	_spawn_rooms()
 	
 	
@@ -37,7 +37,7 @@ func _spawn_rooms() -> void:
 			if i == num_levels - 1:
 				room = END_ROOMS[randi() % END_ROOMS.size()].instance()
 			else:
-				if SavedData.num_floor == 3:
+				if SavedData.num_floor == 5:
 					room = FINAL_SCENE.instance()
 				else:
 					if (randi() % 3 == 0 and not special_room_spawned) or (i == num_levels - 2 and not special_room_spawned):

@@ -3,9 +3,10 @@ extends Area2D
 onready var collision_shape: CollisionShape2D = get_node("CollisionShape2D")
 onready var tween: Tween = get_node("Tween")
 enum ACTIVE_ITEM {EMPTY, KREDITKARTE, TEXTMARKER, TABLETT}
-const texture = preload("res://Art/Neu/Mensaessen.png")
+const texture = preload("res://Art/Neu/Tablett.png")
 
-func _on_PapasKreditkarte_body_entered(player: KinematicBody2D) -> void:
+func _on_MensaTablett_body_entered(player: KinematicBody2D) -> void:
+	SavedData.item = 1
 	$ItemPickUp.play()
 	collision_shape.set_deferred("disabled", true)
 	player.current_item = ACTIVE_ITEM.TABLETT

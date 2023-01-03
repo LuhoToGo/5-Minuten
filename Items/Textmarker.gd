@@ -5,9 +5,9 @@ onready var tween: Tween = get_node("Tween")
 const texture = preload("res://Art/Neu/Textmarker.png")
 
 func _on_Textmarker_body_entered(player: KinematicBody2D) -> void:
+	SavedData.item = 3
 	$ItemPickUp.play()
 	collision_shape.set_deferred("disabled", true)
-	#player.textmarker()
 	player.current_item = ACTIVE_ITEM.TEXTMARKER
 	player.item_change(texture)
 	var __ = tween.interpolate_property(self, "modulate", Color(1, 1, 1, 1), Color(1, 1, 1, 0), 0.6, Tween.TRANS_SINE, Tween.EASE_IN)

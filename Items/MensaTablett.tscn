@@ -27,5 +27,5 @@ shape = SubResource( 1 )
 stream = ExtResource( 3 )
 volume_db = 3.0
 
-[connection signal="body_entered" from="." to="." method="_on_PapasKreditkarte_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_MensaTablett_body_entered"]
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]

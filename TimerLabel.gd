@@ -14,7 +14,6 @@ func _process(_delta):
 		SavedData.m -= 1
 		SavedData.s = 59
 		
-	
 	set_text("%02d:%02d:%02d" % [SavedData.m,SavedData.s,SavedData.ms])
 	
 	if SavedData.m == 0 and SavedData.s == 0 and SavedData.ms == 0:

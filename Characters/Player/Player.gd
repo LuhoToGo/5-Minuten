@@ -2,6 +2,9 @@ extends Character
 
 const DUST_SCENE: PackedScene = preload("res://Characters/Player/Dust.tscn")
 const FLECK: PackedScene = preload("res://Items/Fleck.tscn")
+const textmarker = preload("res://Art/Neu/Textmarker.png")
+const kreditkarte = preload("res://Art/Neu/Papa‘s Creditcard.png")
+const tablett = preload("res://Art/Neu/Tablett.png")
 
 enum {UP, DOWN}
 enum ACTIVE_ITEM {EMPTY, KREDITKARTE, TEXTMARKER, TABLETT}
@@ -30,6 +33,7 @@ func _ready() -> void:
 	
 func _restore_previous_state() -> void:
 	self.hp = SavedData.hp
+	self.max_speed = SavedData.speed
 	for weapon in SavedData.weapons:
 		weapon = weapon.duplicate()
 		weapon.position = Vector2.ZERO
@@ -38,12 +42,20 @@ func _restore_previous_state() -> void:
 		
 		emit_signal("weapon_picked_up", weapon.get_texture())
 		emit_signal("weapon_switched", weapons.get_child_count() - 2, weapons.get_child_count() - 1)
-		
 	current_weapon = weapons.get_child(SavedData.equipped_weapon_index)
 	current_weapon.show()
-	
 	emit_signal("weapon_switched", weapons.get_child_count() - 1, SavedData.equipped_weapon_index)
-
+	
+	if SavedData.item == 0:
+		pass
+	elif SavedData.item == 1:
+		current_item = ACTIVE_ITEM.TABLETT
+		item_change(tablett)
+	elif SavedData.item == 2:
+		item_change(kreditkarte)
+	elif SavedData.item == 3:
+		current_item = ACTIVE_ITEM.TEXTMARKER
+		item_change(textmarker)
 
 func _process(_delta: float) -> void:
 	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
@@ -183,6 +195,7 @@ func use_active_item () -> void:
 			textmarker()
 			current_item = ACTIVE_ITEM.EMPTY
 		ACTIVE_ITEM.TABLETT:
+			var max_speed_before_dash = self.max_speed
 			$FiniteStateMachine.set_state($FiniteStateMachine.states.dashing)
 			mov_direction = latest_dir*10
 			max_speed = 500
@@ -201,14 +214,15 @@ func use_active_item () -> void:
 					current_item = ACTIVE_ITEM.EMPTY
 			yield(get_tree().create_timer(0.2), "timeout")
 			$FiniteStateMachine.set_state($FiniteStateMachine.states.move)
-			max_speed = 120
+			max_speed = max_speed_before_dash
+			speed = 200
 			dash_uses -= 1
 	if current_item == ACTIVE_ITEM.EMPTY:
 		item_change(null)
+		SavedData.item = 0
 
 func item_change (texture) -> void:
 	emit_signal("item_change", texture)
-	
 
 func item_count(number) -> void:
 	emit_signal("item_count", number)

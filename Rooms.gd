@@ -1,8 +1,8 @@
 extends Navigation2D
 
 const SPAWN_ROOMS: Array = [preload("res://Rooms/SpawnRoom0.tscn"), preload("res://Rooms/SpawnRoom1.tscn")]
-const INTERMEDIATE_ROOMS: Array = [preload("res://Rooms/Room0.tscn"), preload("res://Rooms/Room1.tscn"), preload("res://Rooms/Room2.tscn"), preload("res://Rooms/Room3.tscn"), preload("res://Rooms/Room4.tscn"), preload("res://Rooms/Room5.tscn"), preload("res://Rooms/Room6.tscn"), preload("res://Rooms/Room7.tscn"), preload("res://Rooms/Room8.tscn"), preload("res://Rooms/Room9.tscn"), preload("res://Rooms/Room10.tscn"), preload("res://Rooms/Room11.tscn"), preload("res://Rooms/Room12.tscn"), preload("res://Rooms/Room13.tscn")]
-const SPECIAL_ROOMS: Array = [preload("res://Rooms/SpecialRoom0.tscn"), preload("res://Rooms/SpecialRoom1.tscn"), preload("res://Rooms/SpecialRoom2.tscn")]
+const INTERMEDIATE_ROOMS: Array = [preload("res://Rooms/Room0.tscn"), preload("res://Rooms/Room1.tscn"), preload("res://Rooms/Room2.tscn"), preload("res://Rooms/Room3.tscn"), preload("res://Rooms/Room4.tscn"), preload("res://Rooms/Room5.tscn"), preload("res://Rooms/Room6.tscn"), preload("res://Rooms/Room7.tscn"), preload("res://Rooms/Room8.tscn"), preload("res://Rooms/Room9.tscn"), preload("res://Rooms/Room10.tscn"), preload("res://Rooms/Room11.tscn"), preload("res://Rooms/Room12.tscn"), preload("res://Rooms/Room13.tscn"), preload("res://Rooms/SpecialRoom0.tscn"), preload("res://Rooms/SpecialRoom1.tscn"), preload("res://Rooms/SpecialRoom2.tscn")]
+const SPECIAL_ROOMS: Array = []
 const END_ROOMS: Array = [preload("res://Rooms/EndRoom0.tscn")]
 const FINAL_SCENE: PackedScene = preload("res://Rooms/Final.tscn")
 
@@ -40,11 +40,7 @@ func _spawn_rooms() -> void:
 				if SavedData.num_floor == 5:
 					room = FINAL_SCENE.instance()
 				else:
-					if (randi() % 3 == 0 and not special_room_spawned) or (i == num_levels - 2 and not special_room_spawned):
-						room = SPECIAL_ROOMS[randi() % SPECIAL_ROOMS.size()].instance()
-						special_room_spawned = true
-					else:
-						room = INTERMEDIATE_ROOMS[randi() % INTERMEDIATE_ROOMS.size()].instance()
+					room = INTERMEDIATE_ROOMS[randi() % INTERMEDIATE_ROOMS.size()].instance()
 				
 			var previous_room_tilemap: TileMap = previous_room.get_node("TileMap")
 			var previous_room_door: StaticBody2D = previous_room.get_node("Doors/Door")

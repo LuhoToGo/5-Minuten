@@ -338,6 +338,7 @@ texture = ExtResource( 2 )
 
 [node name="Hitbox" parent="Node2D/Sprite" index="0"]
 position = Vector2( 6.63065, -6.63068 )
+damage = 2
 knockback_force = 200
 
 [node name="CollisionShape2D" parent="Node2D/Sprite/Hitbox" index="0"]

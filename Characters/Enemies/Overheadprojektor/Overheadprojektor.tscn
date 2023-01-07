@@ -192,8 +192,6 @@ position = Vector2( 233, 137 )
 collision_layer = 4
 collision_mask = 5
 script = ExtResource( 1 )
-max_hp = 1
-hp = 1
 
 [node name="FiniteStateMachine" type="Node" parent="."]
 script = ExtResource( 5 )

@@ -213,8 +213,8 @@ tracks/1/keys = {
 
 [node name="RegularEnemy" instance=ExtResource( 1 )]
 script = ExtResource( 6 )
-max_hp = 4
-hp = 4
+max_hp = 8
+hp = 8
 accerelation = 25
 max_speed = 60
 

@@ -251,7 +251,7 @@ scale = Vector2( 0.225731, 0.225731 )
 texture = ExtResource( 3 )
 
 [node name="Hitbox" parent="Node2D/Sprite" index="0"]
-damage = 2
+damage = 4
 
 [node name="CollisionShape2D" parent="Node2D/Sprite/Hitbox" index="0"]
 position = Vector2( -0.154598, -8.85877 )

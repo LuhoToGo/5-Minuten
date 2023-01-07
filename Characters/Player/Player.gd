@@ -33,6 +33,7 @@ func _ready() -> void:
 	
 func _restore_previous_state() -> void:
 	self.hp = SavedData.hp
+	self.max_speed = SavedData.speed
 	for weapon in SavedData.weapons:
 		weapon = weapon.duplicate()
 		weapon.position = Vector2.ZERO
@@ -194,6 +195,7 @@ func use_active_item () -> void:
 			textmarker()
 			current_item = ACTIVE_ITEM.EMPTY
 		ACTIVE_ITEM.TABLETT:
+			var max_speed_before_dash = self.max_speed
 			$FiniteStateMachine.set_state($FiniteStateMachine.states.dashing)
 			mov_direction = latest_dir*10
 			max_speed = 500
@@ -212,7 +214,8 @@ func use_active_item () -> void:
 					current_item = ACTIVE_ITEM.EMPTY
 			yield(get_tree().create_timer(0.2), "timeout")
 			$FiniteStateMachine.set_state($FiniteStateMachine.states.move)
-			max_speed = 120
+			max_speed = max_speed_before_dash
+			speed = 200
 			dash_uses -= 1
 	if current_item == ACTIVE_ITEM.EMPTY:
 		item_change(null)

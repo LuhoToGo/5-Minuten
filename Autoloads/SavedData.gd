@@ -3,6 +3,7 @@ extends Node
 var num_floor: int = 0
 
 var hp: int = 4
+var speed =130
 var weapons: Array = []
 var item = 0
 var equipped_weapon_index: int = 0

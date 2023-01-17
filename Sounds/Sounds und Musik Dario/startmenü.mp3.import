@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/startmenü.mp3-708d845a40e92de03c337d6c58e0c72f.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Sounds und Musik Dario/startmenü.mp3"
+dest_files=[ "res://.import/startmenü.mp3-708d845a40e92de03c337d6c58e0c72f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

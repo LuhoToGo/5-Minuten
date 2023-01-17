@@ -325,7 +325,7 @@ anims/move = SubResource( 22 )
 
 [node name="Weapons" type="Node2D" parent="." index="4"]
 
-[node name="Sword" parent="Weapons" index="0" instance=ExtResource( 6 )]
+[node name="Faust" parent="Weapons" index="0" instance=ExtResource( 6 )]
 visible = false
 
 [node name="Camera2D" type="Camera2D" parent="." index="5"]

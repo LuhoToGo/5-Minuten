@@ -176,15 +176,15 @@ tracks/1/keys = {
 }
 
 [sub_resource type="CapsuleShape2D" id=29]
-radius = 5.0
+radius = 4.0
 height = 6.0
 
 [sub_resource type="CapsuleShape2D" id=30]
-radius = 5.0
+radius = 4.0
 height = 6.0
 
 [sub_resource type="CapsuleShape2D" id=31]
-radius = 6.0
+radius = 5.0
 height = 4.0
 
 [node name="Overheadprojektor" type="KinematicBody2D"]

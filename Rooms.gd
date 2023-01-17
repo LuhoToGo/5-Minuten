@@ -13,8 +13,8 @@ const FINAL_SCENE: PackedScene = preload("res://Rooms/Final.tscn")
 
 const TILE_SIZE: int = 16
 const STAGE1_FLOOR_TILE_INDEX: int = 41
-const STAGE2_FLOOR_TILE_INDEX: int = 41
-const STAGE3_FLOOR_TILE_INDEX: int = 41
+const STAGE2_FLOOR_TILE_INDEX: int = 68
+const STAGE3_FLOOR_TILE_INDEX: int = 105
 const RIGHT_WALL_TILE_INDEX: int = 43
 const LEFT_WALL_TILE_INDEX: int = 46
 

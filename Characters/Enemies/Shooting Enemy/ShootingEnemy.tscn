@@ -106,7 +106,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=40]
-radius = 4.0
+radius = 3.0
 height = 8.0
 
 [sub_resource type="Animation" id=39]
@@ -274,13 +274,11 @@ tracks/1/keys = {
 }
 
 [sub_resource type="CapsuleShape2D" id=57]
-radius = 4.0
+radius = 3.0
 height = 8.0
 
 [node name="ShootingEnemy" instance=ExtResource( 6 )]
 script = ExtResource( 1 )
-max_hp = 3
-hp = 3
 accerelation = 30
 max_speed = 75
 projectile_speed = 150
@@ -316,7 +314,7 @@ one_shot = true
 enabled = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="8"]
-position = Vector2( 1, 0 )
+position = Vector2( 2, 0 )
 shape = SubResource( 57 )
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]

@@ -6,7 +6,7 @@ func _init() -> void:
 	_add_state("move")
 	_add_state("hurt")
 	_add_state("dead")
-	
+	_add_state("dashing")
 	
 func _ready() -> void:
 	set_state(states.move)
@@ -14,7 +14,6 @@ func _ready() -> void:
 	
 func _state_logic(_delta: float) -> void:
 	if state == states.move:
-		parent.chase()
 		parent.move()
 		
 		
@@ -35,7 +34,7 @@ func _get_transition() -> int:
 func _enter_state(_previous_state: int, new_state: int) -> void:
 	match new_state:
 		states.idle:
-			animation_player.play("idle")
+			pass
 		states.move:
 			animation_player.play("move")
 		states.hurt:

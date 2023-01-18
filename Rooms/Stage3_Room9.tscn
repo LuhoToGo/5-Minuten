@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Rooms/Room.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Rooms/Furniture and Traps/Door_wood.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Rooms/Furniture and Traps/Torch.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 8 )
+
+[node name="Room1" instance=ExtResource( 1 )]
+
+[node name="TileMap" parent="." index="0"]
+tile_data = PoolIntArray( 2, 49, 0, 3, 64, 0, 4, 41, 0, 5, 41, 0, 6, 65, 0, 7, 44, 0, 8, 44, 0, 9, 44, 0, 10, 44, 0, 11, 44, 0, 12, 44, 0, 13, 48, 0, 65538, 46, 0, 65539, 112, 0, 65540, 41, 0, 65541, 41, 0, 65542, 112, 0, 65543, 112, 0, 65544, 112, 0, 65545, 112, 0, 65546, 112, 0, 65547, 112, 0, 65548, 112, 0, 65549, 43, 0, 131074, 46, 0, 131075, 105, 0, 131076, 105, 0, 131077, 105, 0, 131078, 105, 0, 131079, 105, 0, 131080, 105, 0, 131081, 105, 0, 131082, 105, 0, 131083, 105, 0, 131084, 105, 0, 131085, 43, 0, 196610, 46, 0, 196611, 105, 0, 196612, 105, 0, 196613, 105, 0, 196614, 105, 0, 196615, 105, 0, 196616, 105, 0, 196617, 105, 0, 196618, 105, 0, 196619, 105, 0, 196620, 105, 0, 196621, 43, 0, 262146, 46, 0, 262147, 105, 0, 262148, 105, 0, 262149, 105, 0, 262150, 105, 0, 262151, 105, 0, 262152, 105, 0, 262153, 105, 0, 262154, 105, 0, 262155, 105, 0, 262156, 105, 0, 262157, 43, 0, 327682, 46, 0, 327683, 105, 0, 327684, 105, 0, 327685, 105, 0, 327686, 105, 0, 327687, 105, 0, 327688, 105, 0, 327689, 105, 0, 327690, 105, 0, 327691, 105, 0, 327692, 105, 0, 327693, 43, 0, 393218, 46, 0, 393219, 105, 0, 393220, 105, 0, 393221, 105, 0, 393222, 105, 0, 393223, 105, 0, 393224, 105, 0, 393225, 105, 0, 393226, 105, 0, 393227, 105, 0, 393228, 105, 0, 393229, 43, 0, 458754, 63, 0, 458755, 105, 0, 458756, 105, 0, 458757, 105, 0, 458758, 105, 0, 458759, 105, 0, 458760, 105, 0, 458761, 105, 0, 458762, 105, 0, 458763, 105, 0, 458764, 105, 0, 458765, 62, 0 )
+
+[node name="TileMap2" parent="." index="1"]
+tile_data = PoolIntArray( 458755, 44, 0, 458756, 44, 0, 458757, 44, 0, 458758, 44, 0, 458759, 44, 0, 458760, 44, 0, 458761, 44, 0, 458764, 44, 0 )
+
+[node name="FurnitureTileMap" parent="." index="2"]
+tile_data = PoolIntArray( 65539, 80, 0, 65542, 81, 0, 65543, 110, 0, 65544, 75, 0, 65545, 76, 0, 65546, 77, 0, 65548, 110, 0, 131084, 105, 0, 196613, 105, 0, 196618, 87, 0, 196619, 88, 0, 196620, 102, 0, 327685, 93, 0, 327686, 94, 0, 327690, 91, 0, 327691, 94, 0, 327692, 101, 0, 458755, 105, 0 )
+
+[node name="Position2D" type="Position2D" parent="Entrance" index="0"]
+position = Vector2( 168, 119 )
+
+[node name="Position2D2" type="Position2D" parent="Entrance" index="1"]
+position = Vector2( 184, 119 )
+
+[node name="Door" parent="Doors" index="0" instance=ExtResource( 2 )]
+position = Vector2( 80, 16 )
+
+[node name="Position2D" type="Position2D" parent="EnemyPositions" index="0"]
+position = Vector2( 69, 58 )
+
+[node name="Position2D2" type="Position2D" parent="EnemyPositions" index="1"]
+position = Vector2( 66, 110 )
+
+[node name="Position2D3" type="Position2D" parent="EnemyPositions/Position2D2" index="0"]
+position = Vector2( 54, -55 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0"]
+position = Vector2( 176, 111 )
+shape = SubResource( 1 )
+
+[node name="Torch" parent="." index="8" instance=ExtResource( 3 )]
+position = Vector2( 185, 23 )

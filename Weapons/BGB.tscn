@@ -63,7 +63,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=3]
 resource_local_to_scene = true
 resource_name = "attack"
-length = 0.5
+length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("Node2D/Sprite/ChargeParticles:emitting")
 tracks/0/interp = 1
@@ -215,6 +215,9 @@ material = SubResource( 2 )
 position = Vector2( 1.0425, -4.66357 )
 scale = Vector2( 0.228752, 0.228752 )
 texture = ExtResource( 3 )
+
+[node name="Hitbox" parent="Node2D/Sprite" index="0"]
+damage = 2
 
 [node name="CollisionShape2D" parent="Node2D/Sprite/Hitbox" index="0"]
 disabled = false

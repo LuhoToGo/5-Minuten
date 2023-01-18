@@ -84,14 +84,14 @@ wait_time = 0.1
 autostart = true
 
 [node name="ActiveItem" type="PanelContainer" parent="UI"]
-anchor_left = 0.5
+anchor_left = 0.942
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 0.942
 anchor_bottom = 1.0
-margin_left = -16.0
-margin_top = -46.0
-margin_right = 14.0
-margin_bottom = -16.0
+margin_left = -15.16
+margin_top = -38.0
+margin_right = 14.84
+margin_bottom = -8.0
 grow_horizontal = 2
 
 [node name="TextureRect" type="TextureRect" parent="UI/ActiveItem"]
@@ -117,11 +117,10 @@ position = Vector2( 133.183, 118.911 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Hintergrundmusik" type="AudioStreamPlayer2D" parent="."]
+[node name="Hintergrundmusik" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
 volume_db = -14.0
 autoplay = true
-max_distance = 28444.0
 
 [connection signal="timeout" from="UI/TimerLabel/UITimer" to="UI/TimerLabel" method="_on_UITimer_timeout"]
 [connection signal="hp_changed" from="Player" to="UI" method="_on_Player_hp_changed"]

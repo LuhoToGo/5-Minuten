@@ -6,9 +6,15 @@ export(bool) var boss_room: bool = false
 const SPAWN_EXPLOSION_SCENE: PackedScene = preload("res://Characters/Enemies/SpawnExplosion.tscn")
 
 const ENEMY_SCENES: Dictionary = {
-	"REGULAR_ENEMY": preload("res://Characters/Enemies/Regular Enemy/RegularEnemy.tscn"),
-	"SHOOTING_ENEMY": preload("res://Characters/Enemies/Shooting Enemy/ShootingEnemy.tscn"),
-	"PROJECTOR": preload("res://Characters/Enemies/Overheadprojektor/Overheadprojektor.tscn")
+	"S1_REGULAR_ENEMY": preload("res://Characters/Enemies/Regular Enemy/RegularEnemy.tscn"),
+	"S1_SHOOTING_ENEMY": preload("res://Characters/Enemies/Shooting Enemy/ShootingEnemy.tscn"),
+	"S1_PROJECTOR": preload("res://Characters/Enemies/Overheadprojektor/Overheadprojektor.tscn"),
+	"S2_REGULAR_ENEMY": preload("res://Characters/Enemies/S2_Regular Enemy/RegularEnemy.tscn"),
+	"S2_SHOOTING_ENEMY": preload("res://Characters/Enemies/S2_Shooting Enemy/ShootingEnemy.tscn"),
+	"S2_PROJECTOR": preload("res://Characters/Enemies/S2_Overheadprojektor/Overheadprojektor.tscn"),
+	"S3_REGULAR_ENEMY": preload("res://Characters/Enemies/S3_Regular Enemy/RegularEnemy.tscn"),
+	"S3_SHOOTING_ENEMY": preload("res://Characters/Enemies/S3_Shooting Enemy/ShootingEnemy.tscn"),
+	"S3_PROJECTOR": preload("res://Characters/Enemies/S3_Overheadprojektor/Overheadprojektor.tscn")
 }
 
 var num_enemies: int
@@ -49,12 +55,27 @@ func _spawn_enemies() -> void:
 	for enemy_position in enemy_positions_container.get_children():
 		var enemy: KinematicBody2D
 		var random = randi() % 3
-		if random == 0:
-			enemy = ENEMY_SCENES.REGULAR_ENEMY.instance()
-		elif random == 1:
-			enemy = ENEMY_SCENES.SHOOTING_ENEMY.instance()
-		elif random == 2:
-			enemy = ENEMY_SCENES.PROJECTOR.instance()
+		if SavedData.num_floor == 1:
+			if random == 0:
+				enemy = ENEMY_SCENES.S1_REGULAR_ENEMY.instance()
+			elif random == 1:
+				enemy = ENEMY_SCENES.S1_SHOOTING_ENEMY.instance()
+			elif random == 2:
+				enemy = ENEMY_SCENES.S1_PROJECTOR.instance()
+		elif SavedData.num_floor == 2:
+			if random == 0:
+				enemy = ENEMY_SCENES.S2_REGULAR_ENEMY.instance()
+			elif random == 1:
+				enemy = ENEMY_SCENES.S2_SHOOTING_ENEMY.instance()
+			elif random == 2:
+				enemy = ENEMY_SCENES.S2_PROJECTOR.instance()
+		elif SavedData.num_floor == 3:
+			if random == 0:
+				enemy = ENEMY_SCENES.S3_REGULAR_ENEMY.instance()
+			elif random == 1:
+				enemy = ENEMY_SCENES.S3_SHOOTING_ENEMY.instance()
+			elif random == 2:
+				enemy = ENEMY_SCENES.S3_PROJECTOR.instance()
 		enemy.position = enemy_position.position
 		enemy.player_visible = player_visible
 		call_deferred("add_child", enemy)

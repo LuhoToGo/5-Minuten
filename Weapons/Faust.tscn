@@ -338,10 +338,12 @@ texture = ExtResource( 2 )
 
 [node name="Hitbox" parent="Node2D/Sprite" index="0"]
 position = Vector2( 6.63065, -6.63068 )
+damage = 2
 knockback_force = 200
 
 [node name="CollisionShape2D" parent="Node2D/Sprite/Hitbox" index="0"]
 position = Vector2( -7.54529, -120.901 )
+scale = Vector2( 1, 4 )
 shape = SubResource( 7 )
 disabled = false
 
@@ -349,8 +351,8 @@ disabled = false
 position = Vector2( 4.47162, -8.51609 )
 
 [node name="SlashSprite" type="Sprite" parent="." index="1"]
-visible = false
-position = Vector2( 18, 0 )
+position = Vector2( 26, 0 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
 hframes = 3
 

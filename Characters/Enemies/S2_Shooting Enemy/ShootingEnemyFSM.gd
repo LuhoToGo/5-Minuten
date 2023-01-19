@@ -14,6 +14,7 @@ func _ready() -> void:
 	
 func _state_logic(_delta: float) -> void:
 	if state == states.move:
+		parent.chase()
 		parent.move()
 		
 		
@@ -34,7 +35,7 @@ func _get_transition() -> int:
 func _enter_state(_previous_state: int, new_state: int) -> void:
 	match new_state:
 		states.idle:
-			pass
+			animation_player.play("idle")
 		states.move:
 			animation_player.play("move")
 		states.hurt:

@@ -6,14 +6,18 @@ var knockback_direction: Vector2 = Vector2.ZERO
 export(int) var knockback_force: int = 300
 
 var body_inside: bool = false
-
+var __
 onready var collision_shape: CollisionShape2D = get_child(0)
 onready var timer: Timer = Timer.new()
 
 
 func _init() -> void:
-	var __ = connect("body_entered", self, "_on_body_entered")
-	__ = connect("body_exited", self, "_on_body_exited")
+	#var __ = connect("body_entered", self, "_on_body_entered")
+	#__ = connect("body_exited", self, "_on_body_exited")
+	if is_connected("body_entered", self, "_on_body_entered") == false:
+		 __ = connect("body_entered", self, "_on_body_entered")
+	if is_connected("body_exited", self, "_on_body_exited") == false:
+		__ = connect("body_exited", self, "_on_body_exited")
 	
 	
 func _ready() -> void:

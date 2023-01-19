@@ -327,8 +327,8 @@ rotation_offset = 10
 
 [node name="Sprite" parent="Node2D" index="0"]
 material = SubResource( 6 )
-position = Vector2( 7.8688, -10.2167 )
-scale = Vector2( 0.378684, 0.378684 )
+position = Vector2( 7.89435, -8.81146 )
+scale = Vector2( 0.342551, 0.342551 )
 texture = ExtResource( 3 )
 
 [node name="Hitbox" parent="Node2D/Sprite" index="0"]
@@ -346,7 +346,8 @@ position = Vector2( 5.65685, -4.24264 )
 
 [node name="SlashSprite" type="Sprite" parent="." index="1"]
 visible = false
-position = Vector2( 18, 0 )
+position = Vector2( 19, 1 )
+scale = Vector2( 1.375, 1.375 )
 texture = ExtResource( 2 )
 hframes = 3
 

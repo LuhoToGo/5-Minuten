@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Hintergrundsmusik 2.BOSS.mp3-ef8245226d90d2a5cdff9809eeccb48f.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Sounds und Musik Dario/Hintergrundsmusik 2.BOSS.mp3"
+dest_files=[ "res://.import/Hintergrundsmusik 2.BOSS.mp3-ef8245226d90d2a5cdff9809eeccb48f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

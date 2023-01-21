@@ -1,6 +1,6 @@
 extends Node
 
-var num_floor: int = 0
+var num_floor: int = 3
 
 var hp: int = 4
 var speed =130

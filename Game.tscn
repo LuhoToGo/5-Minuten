@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://HeartBar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/Player/Player.tscn" type="PackedScene" id=2]
@@ -11,6 +11,9 @@
 [ext_resource path="res://OpenSans.tres" type="Theme" id=9]
 [ext_resource path="res://OpenSans-VariableFont_wdth,wght.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://Sounds/Sounds und Musik Dario/Hintergrundsmusik - Raum1.mp3" type="AudioStream" id=11]
+[ext_resource path="res://Sounds/Sounds und Musik Dario/Hintergrundsmusik 2.1.mp3" type="AudioStream" id=12]
+[ext_resource path="res://Sounds/Sounds und Musik Dario/Hintergrundsmusik 2.BOSS.mp3" type="AudioStream" id=13]
+[ext_resource path="res://Sounds/Sounds und Musik Dario/Hintergrundsmusik 2.2.mp3" type="AudioStream" id=14]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.713726, 0.670588, 0.670588, 1 )
@@ -117,10 +120,21 @@ position = Vector2( 133.183, 118.911 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Hintergrundmusik" type="AudioStreamPlayer" parent="."]
+[node name="Hintergrundmusik1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
 volume_db = -14.0
-autoplay = true
+
+[node name="Hintergrundmusik3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -14.0
+
+[node name="Hintergrundmusik2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = -14.0
+
+[node name="HintergrundmusikBoss" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = -14.0
 
 [connection signal="timeout" from="UI/TimerLabel/UITimer" to="UI/TimerLabel" method="_on_UITimer_timeout"]
 [connection signal="hp_changed" from="Player" to="UI" method="_on_Player_hp_changed"]

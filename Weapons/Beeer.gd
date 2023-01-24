@@ -14,3 +14,5 @@ func triple_shoot() -> void:
 	shoot(0)
 	shoot(12)
 	shoot(-12)
+
+

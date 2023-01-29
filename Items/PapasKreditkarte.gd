@@ -8,6 +8,7 @@ const texture = preload("res://Art/Neu/Papa‘s Creditcard.png")
 func _on_PapasKreditkarte_body_entered(player: KinematicBody2D) -> void:
 	SavedData.item = 2
 	$ItemPickUp.play()
+	player.item_pickup("Kreditkarte")
 	collision_shape.set_deferred("disabled", true)
 	player.current_item = ACTIVE_ITEM.KREDITKARTE
 	player.item_change(texture)

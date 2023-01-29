@@ -20,6 +20,7 @@ signal invisible
 signal visible
 signal item_change
 signal item_count
+signal item_pickup
 
 onready var parent: Node2D = get_parent()
 onready var weapons: Node2D = get_node("Weapons")
@@ -121,6 +122,12 @@ func _switch_weapon(direction: int) -> void:
 	
 func pick_up_weapon(weapon: Node2D) -> void:
 	$WeaponPickUp.play()
+	print(weapon.name)
+	match weapon.name:
+		"Beeer":
+			item_pickup("One liner Bier")
+		"BGB":
+			item_pickup("One liner bgb")
 	SavedData.weapons.append(weapon.duplicate())
 	var prev_index: int = SavedData.equipped_weapon_index
 	var new_index: int = weapons.get_child_count()
@@ -223,6 +230,9 @@ func use_active_item () -> void:
 
 func item_change (texture) -> void:
 	emit_signal("item_change", texture)
+	
+func item_pickup (label) -> void:
+	emit_signal("item_pickup", label)
 
 func item_count(number) -> void:
 	emit_signal("item_count", number)

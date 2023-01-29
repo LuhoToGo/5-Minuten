@@ -9,7 +9,6 @@ var max_hp: int = 4
 onready var player: KinematicBody2D = get_parent().get_node("Player")
 onready var health_bar: TextureProgress = get_node("HealthBar")
 onready var health_bar_tween: Tween = get_node("HealthBar/Tween")
-
 onready var inventory: HBoxContainer = get_node("PanelContainer/Inventory")
 
 
@@ -18,6 +17,7 @@ func _ready() -> void:
 	_update_health_bar(4)
 	player.connect("item_change", self, "on_item_change")
 	player.connect("item_count", self, "on_item_count")
+	player.connect("item_pickup", self, "on_item_pickup")
 	
 func _update_health_bar(new_value: int) -> void:
 	# ALTE VERSION: var __ = health_bar_tween.interpolate_property(health_bar, "value", health_bar.value, new_value, 0.5, Tween.TRANS_QUINT, Tween.EASE_OUT)
@@ -49,3 +49,8 @@ func on_item_change(texture):
 
 func on_item_count(number):
 	$ItemNumber.text = number
+	
+func on_item_pickup(label):
+	$ItemPickup.text = label
+	print($ItemPickup.text)
+

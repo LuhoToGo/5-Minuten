@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Hintergrundsmusik 2.3.mp3-8377d19c79da2cdf747aef533ae33b94.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Sounds und Musik Dario/Hintergrundsmusik 2.3.mp3"
+dest_files=[ "res://.import/Hintergrundsmusik 2.3.mp3-8377d19c79da2cdf747aef533ae33b94.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

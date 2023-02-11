@@ -6,6 +6,7 @@ onready var tween: Tween = get_node("Tween")
 
 func _on_MensaEssen_body_entered(player: KinematicBody2D) -> void:
 	$ItemPickUp.play()
+	player.item_pickup("Mensa Essen\nSoll man das essen können?")
 	collision_shape.set_deferred("disabled", true)
 	player.hp += 1
 	SavedData.hp += 1

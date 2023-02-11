@@ -64,6 +64,7 @@ func _on_PlayerDetector_body_entered(body: KinematicBody2D) -> void:
 		player_detector.set_collision_mask_bit(0, false)
 		player_detector.set_collision_mask_bit(1, false)
 		body.pick_up_weapon(self)
+		#body.item_pickup("")
 		position = Vector2.ZERO
 	else:
 		var __ = tween.stop_all()

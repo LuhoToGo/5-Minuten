@@ -7,6 +7,7 @@ const texture = preload("res://Art/Neu/Textmarker.png")
 func _on_Textmarker_body_entered(player: KinematicBody2D) -> void:
 	SavedData.item = 3
 	$ItemPickUp.play()
+	player.item_pickup("Textmarker\nDas Highlight meines Studiums")
 	collision_shape.set_deferred("disabled", true)
 	player.current_item = ACTIVE_ITEM.TEXTMARKER
 	player.item_change(texture)

@@ -5,6 +5,7 @@ onready var tween: Tween = get_node("Tween")
 
 func _on_Karohemd_body_entered(player: KinematicBody2D) -> void:
 	$ItemPickUp.play()
+	player.item_pickup("Karohemnd\n...irgendwas, irgendwas, Maschinenbau")
 	collision_shape.set_deferred("disabled", true)
 	SavedData.m += 6
 	

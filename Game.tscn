@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://HeartBar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/Player/Player.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Sounds/Sounds und Musik Dario/Hintergrundsmusik 2.1.mp3" type="AudioStream" id=12]
 [ext_resource path="res://Sounds/Sounds und Musik Dario/Hintergrundsmusik 2.BOSS.mp3" type="AudioStream" id=13]
 [ext_resource path="res://Sounds/Sounds und Musik Dario/Hintergrundsmusik 2.2.mp3" type="AudioStream" id=14]
+[ext_resource path="res://ScreenShake.tscn" type="PackedScene" id=15]
 
 [sub_resource type="Animation" id=5]
 resource_name = "ItemPickup"
@@ -159,6 +160,8 @@ script = ExtResource( 4 )
 position = Vector2( 133.183, 118.911 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ScreenShake" parent="Camera2D" instance=ExtResource( 15 )]
 
 [node name="Hintergrundmusik1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )

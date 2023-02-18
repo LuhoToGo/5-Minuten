@@ -22,3 +22,4 @@ func _ready() -> void:
 		$Hintergrundmusik3.play()
 	elif SavedData.num_floor == 4:
 		$HintergrundmusikBoss.play()
+	

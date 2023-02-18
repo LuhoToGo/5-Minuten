@@ -15,8 +15,6 @@ onready var player_detector: Area2D = get_node("PlayerDetector")
 onready var tween: Tween = get_node("Tween")
 onready var cool_down_timer: Timer = get_node("CoolDownTimer")
 
-
-
 func _ready() -> void:
 	if not on_floor:
 		player_detector.set_collision_mask_bit(0, false)

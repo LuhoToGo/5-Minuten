@@ -107,7 +107,7 @@ animations = [ {
 
 [sub_resource type="CapsuleShape2D" id=40]
 radius = 3.0
-height = 8.0
+height = 10.0
 
 [sub_resource type="Animation" id=39]
 length = 0.001
@@ -275,7 +275,7 @@ tracks/1/keys = {
 
 [sub_resource type="CapsuleShape2D" id=57]
 radius = 3.0
-height = 8.0
+height = 10.0
 
 [node name="ShootingEnemy" instance=ExtResource( 6 )]
 script = ExtResource( 1 )

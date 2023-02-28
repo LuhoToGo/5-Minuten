@@ -5,7 +5,7 @@
 [ext_resource path="res://Sounds/Sounds und Musik Dario/pick_up.mp3" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 5 )
+extents = Vector2( 8.1517, 5.4603 )
 
 [node name="PapasKreditkarte" type="Area2D"]
 collision_layer = 0
@@ -18,7 +18,8 @@ scale = Vector2( 0.351563, 0.351563 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1, 0 )
+position = Vector2( 0.56061, -0.204507 )
+rotation = -0.816814
 shape = SubResource( 1 )
 
 [node name="Tween" type="Tween" parent="."]

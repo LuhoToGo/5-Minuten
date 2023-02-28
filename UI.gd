@@ -53,4 +53,4 @@ func on_item_count(number):
 func on_item_pickup(label):
 	$ItemPickup.text = label
 	print($ItemPickup.text)
-
+	$ItemPickupAnimation.play("ItemPickup")

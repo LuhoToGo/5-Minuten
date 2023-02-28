@@ -125,9 +125,11 @@ func pick_up_weapon(weapon: Node2D) -> void:
 	print(weapon.name)
 	match weapon.name:
 		"Beeer":
-			item_pickup("One liner Bier")
+			item_pickup("Beeer\n6 Flaschen sind 1 Schnitzel")
 		"BGB":
-			item_pickup("One liner bgb")
+			item_pickup("Gesetzbuch\nDie Würde des Studenten ist unantastbar")
+		"Hammer":
+			item_pickup("Richterhammer\nWenn ich groß bin will ich sein wie Barbara Salesch")
 	SavedData.weapons.append(weapon.duplicate())
 	var prev_index: int = SavedData.equipped_weapon_index
 	var new_index: int = weapons.get_child_count()

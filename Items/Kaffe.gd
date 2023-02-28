@@ -8,7 +8,7 @@ func _on_Kaffe_body_entered(player: KinematicBody2D) -> void:
 	collision_shape.set_deferred("disabled", true)
 	player.max_speed += 50
 	SavedData.speed = 180
-	player.item_pickup("Kaffe")
+	player.item_pickup("Kaffe\nHmm, Lecker Kaffe!")
 	
 	var __ = tween.interpolate_property(self, "modulate", Color(1, 1, 1, 1), Color(1, 1, 1, 0), 0.6, Tween.TRANS_SINE, Tween.EASE_IN)
 	assert(__)

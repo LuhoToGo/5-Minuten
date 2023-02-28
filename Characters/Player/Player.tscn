@@ -110,7 +110,7 @@ animations = [ {
 
 [sub_resource type="CapsuleShape2D" id=40]
 radius = 4.0
-height = 2.0
+height = 8.0
 
 [sub_resource type="Animation" id=39]
 length = 0.001
@@ -293,7 +293,7 @@ tracks/2/keys = {
 
 [sub_resource type="CapsuleShape2D" id=41]
 radius = 4.0
-height = 2.0
+height = 8.0
 
 [node name="Player" instance=ExtResource( 1 )]
 collision_layer = 2
@@ -313,7 +313,7 @@ animation = "idle"
 flip_h = true
 
 [node name="CollisionShape2D" parent="." index="2"]
-position = Vector2( -1, -1 )
+position = Vector2( -1, 1 )
 shape = SubResource( 40 )
 
 [node name="AnimationPlayer" parent="." index="3"]
@@ -338,7 +338,7 @@ stream = ExtResource( 7 )
 volume_db = -20.0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="8"]
-position = Vector2( 1, -1 )
+position = Vector2( 1, 1 )
 shape = SubResource( 41 )
 
 [node name="WeaponPickUp" type="AudioStreamPlayer2D" parent="." index="9"]

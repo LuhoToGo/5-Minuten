@@ -13,7 +13,7 @@ func _on_MensaTablett_body_entered(player: KinematicBody2D) -> void:
 	player.dash_uses = 2
 	player.item_change(texture)
 	player.item_count("3")
-	player.item_pickup("Tablett")
+	player.item_pickup("Mensa Tablett\nBesser als davon essen zu müssen!")
 	#player.set_collision_mask_bit(3, false)
 	#player.modulate.a = 0.5
 	

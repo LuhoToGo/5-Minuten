@@ -27,4 +27,4 @@ func _ready() -> void:
 func _on_weapon_used():
 	#$Camera2D.get_child(0).start(0.2, 15, 16, 0)
 	#$Camera2D.get_child(0)._new_shake()
-	$Camera2D.get_child(0).start()
+	$Player.get_node("Camera2D2").get_child(0).start()

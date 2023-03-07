@@ -8,12 +8,12 @@ var priority = 0
 
 onready var camera = get_parent()
 
-func start(duration = 0.2, frequency = 15, amplitude = 16, priority = 0):
+func start(duration = 0.2, frequency = 12, amplitude = 8, priority = 0):
+	print("Signalverknüpfung funktioniert? Test...")
 	if priority >= self.priority:
 		self.priority = priority
 		self.amplitude = amplitude
-		
-		$Duaration.wait_time = duration
+		$Duration.wait_time = duration
 		$Frequency.wait_time = 1/ float(frequency)
 		$Duration.start()
 		$Frequency.start()

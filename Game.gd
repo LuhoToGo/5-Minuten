@@ -14,6 +14,7 @@ func _input(event: InputEvent) -> void:
 		get_tree().paused = true
 
 func _ready() -> void:
+	$Player.current_weapon.connect("attackshake", self, "_on_weapon_used")
 	if SavedData.num_floor == 1:
 		$Hintergrundmusik1.play()
 	elif SavedData.num_floor == 2:
@@ -23,3 +24,7 @@ func _ready() -> void:
 	elif SavedData.num_floor == 4:
 		$HintergrundmusikBoss.play()
 	
+func _on_weapon_used():
+	#$Camera2D.get_child(0).start(0.2, 15, 16, 0)
+	#$Camera2D.get_child(0)._new_shake()
+	$Player.get_node("Camera2D2").get_child(0).start()

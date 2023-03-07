@@ -14,6 +14,7 @@ onready var charge_particles: Particles2D = get_node("Node2D/Sprite/ChargePartic
 onready var player_detector: Area2D = get_node("PlayerDetector")
 onready var tween: Tween = get_node("Tween")
 onready var cool_down_timer: Timer = get_node("CoolDownTimer")
+signal attackshake
 
 func _ready() -> void:
 	if not on_floor:
@@ -25,6 +26,7 @@ func get_input() -> void:
 	if Input.is_action_just_pressed("ui_attack") and not animation_player.is_playing():
 		animation_player.play("charge")
 	elif Input.is_action_just_released("ui_attack"):
+		emit_signal("attackshake")
 		if animation_player.is_playing() and animation_player.current_animation == "charge":
 			animation_player.play("attack")
 		elif charge_particles.emitting:

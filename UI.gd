@@ -1,7 +1,5 @@
 extends CanvasLayer
 
-const INVENTORY_ITEM_SCENE: PackedScene = preload("res://InventoryItem.tscn")
-
 const MIN_HEALTH: int = 0
 
 var max_hp: int = 4
@@ -31,14 +29,11 @@ func _on_Player_hp_changed(new_hp: int) -> void:
 
 
 func _on_Player_weapon_switched(prev_index: int, new_index: int) -> void:
-	inventory.get_child(prev_index).deselect()
-	inventory.get_child(new_index).select()
+	pass
 
 
 func _on_Player_weapon_picked_up(weapon_texture: Texture) -> void:
-	var new_inventory_item: TextureRect = INVENTORY_ITEM_SCENE.instance()
-	inventory.add_child(new_inventory_item)
-	new_inventory_item.initialize(weapon_texture)
+	pass
 
 
 func _on_Player_weapon_droped(index: int) -> void:

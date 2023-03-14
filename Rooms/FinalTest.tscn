@@ -74,6 +74,6 @@ on_floor = true
 
 [connection signal="body_entered" from="EckeLinks" to="Endboss" method="_on_EckeLinks_body_entered"]
 [connection signal="body_entered" from="EckeRechts" to="Endboss" method="_on_EckeRechts_body_entered"]
-[connection signal="body_entered" from="Mitte" to="Endboss" method="_on_Mitte_body_entered"]
 [connection signal="body_entered" from="Mitte" to="Endboss" method="_on_EckeRechts_body_entered"]
+[connection signal="body_entered" from="Mitte" to="Endboss" method="_on_Mitte_body_entered"]
 [connection signal="body_exited" from="Mitte" to="Endboss" method="_on_Mitte_body_exited"]

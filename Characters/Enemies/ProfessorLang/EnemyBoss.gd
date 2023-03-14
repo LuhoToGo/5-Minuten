@@ -1,4 +1,4 @@
-extends Character
+extends CharacterBoss
 class_name EnemyBoss
 
 var path: PoolVector2Array
@@ -22,8 +22,8 @@ func _process(delta):
 		
 func _ready() -> void:
 	var __ = connect("tree_exited", get_parent(), "_on_enemy_killed")
-	player.connect("invisible", self, "on_player_hidden")
-	player.connect("visible", self, "on_player_revealed")
+	#player.connect("invisible", self, "on_player_hidden")
+	#player.connect("visible", self, "on_player_revealed")
 
 #func _physics_process(delta):
 	#signal mit dem Raum verbinden, im Raum idle Funktion von Kindern aufrufen
@@ -56,7 +56,6 @@ func _get_path_to_player() -> void:
 	pass
 
 func on_player_hidden():
-	print("IT")
 	player_visible = false
 	#$FiniteStateMachine._add_state("idle")
 	#$FiniteStateMachine.set_state($FiniteStateMachine.states.idle)

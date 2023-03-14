@@ -1,4 +1,4 @@
-extends FiniteStateMachine
+extends FiniteStateMachineBoss
 
 
 func _init() -> void:
@@ -13,7 +13,7 @@ func _ready() -> void:
 	
 	
 func _state_logic(_delta: float) -> void:
-	if state == states.move:
+	if state == states.move or state == states.hurt:
 		parent.move()
 		
 		
@@ -34,8 +34,9 @@ func _get_transition() -> int:
 func _enter_state(_previous_state: int, new_state: int) -> void:
 	match new_state:
 		states.idle:
-			pass
+			animation_player.play("idle")
 		states.move:
+			#if not animation_player.is_playing():
 			animation_player.play("move")
 		states.hurt:
 			animation_player.play("hurt")

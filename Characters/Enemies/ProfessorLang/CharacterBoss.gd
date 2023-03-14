@@ -9,6 +9,7 @@ const FRICTION: float = 0.5
 export(int) var max_hp: int = 2
 export(int) var hp: int = 2 setget set_hp
 signal hp_changed(new_hp)
+var active_phase2: bool = false
 
 export(int) var accerelation: int = 130
 export(int) var max_speed: int = 130
@@ -35,6 +36,8 @@ func take_damage(dam: int, dir: Vector2, force: int) -> void:
 	if state_machine.state != state_machine.states.hurt  and state_machine.state != state_machine.states.dead and state_machine.state != state_machine.states.dashing:
 		_spawn_hit_effect()
 		self.hp -= dam
+		if hp < 15:
+			active_phase2 = true
 		if name == "Player":
 			$HitSound.play()
 			SavedData.hp = hp

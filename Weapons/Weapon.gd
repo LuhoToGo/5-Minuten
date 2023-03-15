@@ -25,10 +25,8 @@ func _ready() -> void:
 func get_input() -> void:
 	if Input.is_action_just_pressed("ui_attack") and not animation_player.is_playing():
 		animation_player.play("charge")
-		$SwingSound.play()
 	elif Input.is_action_just_released("ui_attack"):
 		emit_signal("attackshake")
-		$SwingSound.play()
 		if animation_player.is_playing() and animation_player.current_animation == "charge":
 			animation_player.play("attack")
 		elif charge_particles.emitting:

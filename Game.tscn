@@ -167,19 +167,19 @@ current = true
 
 [node name="Hintergrundmusik1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
-volume_db = -14.0
+volume_db = -16.0
 
 [node name="Hintergrundmusik3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
-volume_db = -14.0
+volume_db = -16.0
 
 [node name="Hintergrundmusik2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
-volume_db = -14.0
+volume_db = -16.0
 
 [node name="HintergrundmusikBoss" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
-volume_db = -14.0
+volume_db = -16.0
 
 [connection signal="timeout" from="UI/TimerLabel/UITimer" to="UI/TimerLabel" method="_on_UITimer_timeout"]
 [connection signal="hp_changed" from="Player" to="UI" method="_on_Player_hp_changed"]

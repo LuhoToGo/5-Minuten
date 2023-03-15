@@ -16,6 +16,7 @@ onready var spawnareas = [$Area2D/Node2D, $Area2D/Node2D2, $Area2D/Node2D3, $Are
 var distance_to_player: float
 var functions = [1, 2, 3]
 onready var spawnareas1 = [$Node2D, $Node2D2, $Node2D3, $Node2D4]
+onready var phase2areas = [$Area2D/Node2Phase, $Area2D/Node2Phase2, $Area2D/Node2Phase3 , $Area2D/Node2Phase4]
 onready var attack_timer: Timer = get_node("AttackTimer")
 onready var aim_raycast: RayCast2D = get_node("AimRayCast")
 onready var ecke1 = get_parent().get_node("EckeLinks")
@@ -53,7 +54,10 @@ func randomstate(previousstate) -> void:
 			can_move = true
 			is_shooting = true
 			state_randomm = true
-			max_speed = 195
+			if active_phase2 == true:
+				max_speed = 200
+			elif active_phase2 == false:
+				max_speed = 185
 			var rand_dest = randi() % 2
 			if rand_dest == 0:
 				destination = ecke1.position
@@ -102,6 +106,8 @@ func _shootstrahl() -> void:
 		yield(get_tree().create_timer(0.04), "timeout")
 	
 func _shoot() -> void:
+	if active_phase2 == true and (spawnareas.size() < 10):
+		spawnareas += phase2areas
 	for spawnpoint in spawnareas:
 		var projectile: Area2D = PROJECTILE_SCENE.instance()
 		projectile.position = spawnpoint.global_position

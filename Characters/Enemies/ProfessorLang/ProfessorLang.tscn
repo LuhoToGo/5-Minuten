@@ -26,38 +26,6 @@ region = Rect2( 32, 0, 16, 16 )
 atlas = ExtResource( 3 )
 region = Rect2( 48, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=41]
-atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 39, 72 )
-
-[sub_resource type="AtlasTexture" id=42]
-atlas = ExtResource( 5 )
-region = Rect2( 39, 0, 39, 72 )
-
-[sub_resource type="AtlasTexture" id=43]
-atlas = ExtResource( 5 )
-region = Rect2( 78, 0, 39, 72 )
-
-[sub_resource type="AtlasTexture" id=44]
-atlas = ExtResource( 5 )
-region = Rect2( 0, 72, 39, 72 )
-
-[sub_resource type="AtlasTexture" id=45]
-atlas = ExtResource( 5 )
-region = Rect2( 39, 72, 39, 72 )
-
-[sub_resource type="AtlasTexture" id=46]
-atlas = ExtResource( 5 )
-region = Rect2( 78, 72, 39, 72 )
-
-[sub_resource type="AtlasTexture" id=47]
-atlas = ExtResource( 5 )
-region = Rect2( 0, 144, 39, 72 )
-
-[sub_resource type="AtlasTexture" id=48]
-atlas = ExtResource( 5 )
-region = Rect2( 39, 144, 39, 72 )
-
 [sub_resource type="AtlasTexture" id=68]
 atlas = ExtResource( 9 )
 region = Rect2( 0, 0, 64, 64 )
@@ -89,6 +57,38 @@ region = Rect2( 0, 128, 64, 64 )
 [sub_resource type="AtlasTexture" id=75]
 atlas = ExtResource( 9 )
 region = Rect2( 64, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=41]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 39, 72 )
+
+[sub_resource type="AtlasTexture" id=42]
+atlas = ExtResource( 5 )
+region = Rect2( 39, 0, 39, 72 )
+
+[sub_resource type="AtlasTexture" id=43]
+atlas = ExtResource( 5 )
+region = Rect2( 78, 0, 39, 72 )
+
+[sub_resource type="AtlasTexture" id=44]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 72, 39, 72 )
+
+[sub_resource type="AtlasTexture" id=45]
+atlas = ExtResource( 5 )
+region = Rect2( 39, 72, 39, 72 )
+
+[sub_resource type="AtlasTexture" id=46]
+atlas = ExtResource( 5 )
+region = Rect2( 78, 72, 39, 72 )
+
+[sub_resource type="AtlasTexture" id=47]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 144, 39, 72 )
+
+[sub_resource type="AtlasTexture" id=48]
+atlas = ExtResource( 5 )
+region = Rect2( 39, 144, 39, 72 )
 
 [sub_resource type="AtlasTexture" id=59]
 atlas = ExtResource( 4 )
@@ -129,6 +129,11 @@ animations = [ {
 "name": "explosion",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ) ],
 "loop": true,
 "name": "idle1",
@@ -137,7 +142,7 @@ animations = [ {
 "frames": [ SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ) ],
 "loop": true,
 "name": "move",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [ SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ) ],
 "loop": true,
@@ -329,8 +334,8 @@ position = Vector2( 247, 99 )
 scale = Vector2( 2, 2 )
 collision_mask = 32769
 script = ExtResource( 2 )
-max_hp = 20
-hp = 20
+max_hp = 30
+hp = 30
 projectile_speed = 100
 
 [node name="FiniteStateMachine" parent="." index="0"]
@@ -340,7 +345,8 @@ script = ExtResource( 1 )
 position = Vector2( -1, 0 )
 scale = Vector2( 0.35, 0.35 )
 frames = SubResource( 17 )
-animation = "move"
+animation = "idle"
+frame = 1
 playing = true
 flip_h = true
 
@@ -375,10 +381,10 @@ collision_mask = 0
 shape = SubResource( 58 )
 
 [node name="Node2D" type="Node2D" parent="Area2D" index="1"]
-position = Vector2( 23.5, 2.5 )
+position = Vector2( 23.5, 1 )
 
 [node name="Node2D2" type="Node2D" parent="Area2D" index="2"]
-position = Vector2( 18.5, 17 )
+position = Vector2( 17, 17 )
 
 [node name="Node2D3" type="Node2D" parent="Area2D" index="3"]
 position = Vector2( 0, 23 )
@@ -390,13 +396,37 @@ position = Vector2( -24, 2.5 )
 position = Vector2( -18, 17 )
 
 [node name="Node2D6" type="Node2D" parent="Area2D" index="6"]
-position = Vector2( 18.5, -16.5 )
+position = Vector2( 17.5, -16 )
 
 [node name="Node2D7" type="Node2D" parent="Area2D" index="7"]
-position = Vector2( -18, -16.5 )
+position = Vector2( -16.5, -16.5 )
 
 [node name="Node2D8" type="Node2D" parent="Area2D" index="8"]
 position = Vector2( 1, -22.5 )
+
+[node name="Node2Phase" type="Node2D" parent="Area2D" index="9"]
+position = Vector2( -9, 22 )
+
+[node name="Node2Phase2" type="Node2D" parent="Area2D" index="10"]
+position = Vector2( -22, -8.5 )
+
+[node name="Node2Phase3" type="Node2D" parent="Area2D" index="11"]
+position = Vector2( 10.5, -21 )
+
+[node name="Node2Phase4" type="Node2D" parent="Area2D" index="12"]
+position = Vector2( 21, 10.5 )
+
+[node name="Node2Phase5" type="Node2D" parent="Area2D" index="13"]
+position = Vector2( -21.5, 10 )
+
+[node name="Node2Phase6" type="Node2D" parent="Area2D" index="14"]
+position = Vector2( 10, 21.5 )
+
+[node name="Node2Phase7" type="Node2D" parent="Area2D" index="15"]
+position = Vector2( 22, -10 )
+
+[node name="Node2Phase8" type="Node2D" parent="Area2D" index="16"]
+position = Vector2( -9, -21 )
 
 [node name="BossHealth" type="ProgressBar" parent="." index="10"]
 margin_left = -20.5
@@ -405,8 +435,8 @@ margin_right = 19.5
 margin_bottom = -8.5
 rect_scale = Vector2( 1, 0.3 )
 theme = ExtResource( 7 )
-max_value = 20.0
-value = 20.0
+max_value = 30.0
+value = 30.0
 percent_visible = false
 
 [node name="Node2D" type="Node2D" parent="." index="11"]

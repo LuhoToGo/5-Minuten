@@ -60,7 +60,6 @@ func _restore_previous_state() -> void:
 
 func _process(_delta: float) -> void:
 	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
-	
 	if mouse_direction.x < 0 and animated_sprite.flip_h:
 		animated_sprite.flip_h = false
 		$CollisionShape2D.set_deferred("disabled", false)
@@ -78,15 +77,19 @@ func get_input() -> void:
 		if Input.is_action_pressed("ui_down"):
 			mov_direction += Vector2.DOWN
 			latest_dir = Vector2.DOWN
+			latest_dir = mov_direction
 		if Input.is_action_pressed("ui_left"):
 			mov_direction += Vector2.LEFT
 			latest_dir = Vector2.LEFT
+			latest_dir = mov_direction
 		if Input.is_action_pressed("ui_right"):
 			mov_direction += Vector2.RIGHT
 			latest_dir = Vector2.RIGHT
+			latest_dir = mov_direction
 		if Input.is_action_pressed("ui_up"):
 			mov_direction += Vector2.UP
 			latest_dir = Vector2.UP
+			latest_dir = mov_direction
 		
 	if not current_weapon.is_busy():
 		if Input.is_action_just_released("ui_previous_weapon"):
@@ -207,8 +210,9 @@ func use_active_item () -> void:
 			var max_speed_before_dash = self.max_speed
 			$FiniteStateMachine.set_state($FiniteStateMachine.states.dashing)
 			mov_direction = latest_dir*10
-			max_speed = 500
-			speed = 500
+			max_speed = 600
+			speed = 600
+			accerelation = 500
 			if dash_uses == 0:
 				current_item = ACTIVE_ITEM.EMPTY
 			match dash_uses:
@@ -225,6 +229,7 @@ func use_active_item () -> void:
 			$FiniteStateMachine.set_state($FiniteStateMachine.states.move)
 			max_speed = max_speed_before_dash
 			speed = 200
+			accerelation = 130
 			dash_uses -= 1
 	if current_item == ACTIVE_ITEM.EMPTY:
 		item_change(null)

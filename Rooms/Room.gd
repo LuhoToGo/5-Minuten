@@ -77,6 +77,10 @@ func _spawn_enemies() -> void:
 			elif random == 2:
 				enemy = ENEMY_SCENES.S3_PROJECTOR.instance()
 		enemy.position = enemy_position.position
+		if SavedData.num_floor == 4:
+			print("Hello")
+			enemy =  ENEMY_SCENES.S3_PROJECTOR.instance()
+			enemy.global_position = Vector2(245, 124)
 		enemy.player_visible = player_visible
 		call_deferred("add_child", enemy)
 		

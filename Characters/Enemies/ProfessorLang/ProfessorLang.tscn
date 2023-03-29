@@ -334,8 +334,8 @@ position = Vector2( 247, 99 )
 scale = Vector2( 2, 2 )
 collision_mask = 32769
 script = ExtResource( 2 )
-max_hp = 30
-hp = 30
+max_hp = 34
+hp = 34
 projectile_speed = 100
 
 [node name="FiniteStateMachine" parent="." index="0"]
@@ -346,7 +346,6 @@ position = Vector2( -1, 0 )
 scale = Vector2( 0.35, 0.35 )
 frames = SubResource( 17 )
 animation = "idle"
-frame = 1
 playing = true
 flip_h = true
 
@@ -435,8 +434,8 @@ margin_right = 19.5
 margin_bottom = -8.5
 rect_scale = Vector2( 1, 0.3 )
 theme = ExtResource( 7 )
-max_value = 30.0
-value = 30.0
+max_value = 34.0
+value = 34.0
 percent_visible = false
 
 [node name="Node2D" type="Node2D" parent="." index="11"]

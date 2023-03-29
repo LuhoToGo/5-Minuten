@@ -33,6 +33,8 @@ func _ready() -> void:
 func _spawn_rooms() -> void:
 	var previous_room: Node2D
 	var special_room_spawned: bool = false
+	if SavedData.num_floor == 4:
+		num_levels = 1
 	
 	for i in num_levels:
 		var room: Node2D

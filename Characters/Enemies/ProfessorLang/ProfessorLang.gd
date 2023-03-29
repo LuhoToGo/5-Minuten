@@ -22,11 +22,14 @@ onready var aim_raycast: RayCast2D = get_node("AimRayCast")
 onready var ecke1 = get_parent().get_node("EckeLinks")
 onready var ecke2 = get_parent().get_node("EckeRechts")
 onready var mitte = get_parent().get_node("Mitte")
-onready var destination  = mitte.position
+onready var destination = mitte.position
 onready var vonlinks  
 onready var vonrechts 
 
 func _ready():
+	ecke1.connect("body_entered", self, "_on_EckeLinks_body_entered")
+	ecke2.connect("body_entered", self, "_on_EckeRechts_body_entered")
+	mitte.connect("body_entered", self, "_on_Mitte_body_entered")
 	#$Area2D.rotation_degrees = rand_range(-180, 180)
 	#yield(get_tree().create_timer(5), "timeout")
 	randomize()
@@ -136,21 +139,23 @@ func _on_AttackTimer_timeout() -> void:
 
 
 func _on_EckeLinks_body_entered(body):
-	#mov_direction = ecke2.position - self.position
-	destination = vonlinks
-	if vonlinks == ecke2.position:
-		_shootstrahl()
+	if  body.name == "Endboss":
+		#mov_direction = ecke2.position - self.position
+		destination = vonlinks
+		if vonlinks == ecke2.position:
+			_shootstrahl()
 
 
 func _on_EckeRechts_body_entered(body):
-	#mov_direction = mitte.position - self.position
-	destination = vonrechts
-	if vonrechts == ecke1.position:
-		_shootstrahl()
+	if  body.name == "Endboss":
+		#mov_direction = mitte.position - self.position
+		destination = vonrechts
+		if vonrechts == ecke1.position:
+			_shootstrahl()
 
 
 func _on_Mitte_body_entered(body):
-	if  is_shooting:
+	if  is_shooting && body.name == "Endboss":
 		mov_direction = Vector2.ZERO
 		can_move = false
 		is_shooting = false

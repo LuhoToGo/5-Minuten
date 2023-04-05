@@ -53,6 +53,7 @@ func _restore_previous_state() -> void:
 		current_item = ACTIVE_ITEM.TABLETT
 		item_change(tablett)
 	elif SavedData.item == 2:
+		current_item = ACTIVE_ITEM.KREDITKARTE
 		item_change(kreditkarte)
 	elif SavedData.item == 3:
 		current_item = ACTIVE_ITEM.TEXTMARKER
@@ -196,11 +197,12 @@ func textmarker() -> void:
 func use_active_item () -> void:
 	match current_item:
 		ACTIVE_ITEM.KREDITKARTE:
-			self.set_collision_mask_bit(3, false)
-			emit_signal("invisible")
-			self.modulate.a = 0.5
-			yield(get_tree().create_timer(10), "timeout")
-			self.modulate.a = 1
+			print("Kreditkarte")
+			#self.set_collision_mask_bit(3, false)
+			#emit_signal("invisible")
+			#self.modulate.a = 0.5
+			#yield(get_tree().create_timer(10), "timeout")
+			#self.modulate.a = 1
 			emit_signal("visible")
 			current_item = ACTIVE_ITEM.EMPTY
 		ACTIVE_ITEM.TEXTMARKER:

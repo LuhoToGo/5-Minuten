@@ -23,7 +23,7 @@ func _process(delta):
 func _ready() -> void:
 	var __ = connect("tree_exited", get_parent(), "_on_enemy_killed")
 	#player.connect("invisible", self, "on_player_hidden")
-	#player.connect("visible", self, "on_player_revealed")
+	player.connect("visible", self, "on_player_revealed")
 
 #func _physics_process(delta):
 	#signal mit dem Raum verbinden, im Raum idle Funktion von Kindern aufrufen
@@ -62,4 +62,6 @@ func on_player_hidden():
 
 func on_player_revealed():
 	player_visible = true
+	take_damage(1, Vector2.ZERO, 1)
+	print(hp)
 	

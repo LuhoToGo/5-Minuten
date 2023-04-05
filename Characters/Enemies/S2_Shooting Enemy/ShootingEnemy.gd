@@ -1,4 +1,4 @@
-extends Enemy
+5extends Enemy
 
 const PROJECTILE_SCENE: PackedScene = preload("res://Characters/Enemies/Shooting Enemy/Projectile.tscn")
 

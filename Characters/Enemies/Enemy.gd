@@ -62,4 +62,5 @@ func on_player_hidden():
 
 func on_player_revealed():
 	player_visible = true
+	take_damage(1, Vector2.ZERO, 1)
 	
